@@ -99,6 +99,7 @@ public:
         }
 
     }
+    int getColonne() {return this.colonnes;}
 
 };
 #endif // VITRAIL

@@ -1,29 +1,46 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
+#include <stdexcept> //std::out_of_range
+#include <Vitrail.h>
+using namespace std;
 class Joueur {
 private:
     string nom;
     int points;
-    //position vitrier et vitrail -> class separe?
+    int position; //position du vitrier
+    Vitrail* vitrail; //need to set it somehow?
+
 public:
-    /*
-    La classe doit avoir un opérateur de pré-incrémentation -- ainsi qu’un opérateur
--=(int) permettant de déplacer le vitrier vers la droite. Si vous essayer de déplacer le
-vitrier en dehors des colonnes, une exception de type std::out_of_range doit être
-lancée. Elle doit aussi avoir l’opérateur ~ permettant de remettre le vitrier à l’extrême
-gauche.
-Cette classe doit aussi surcharger l’opérateur d’insertion << permettant l’affichage à la
-console de l’état d’un joueur comme suit :
-Joueur A : 0 points
-Vitrier à la position 6.
-Plan :
-O B J R J B G
-G J J R R B G
-G J O R R B G
-G J O R R G G
-G J O R R G G
-6 5 4 3 2 1 0
-    */
+
+
+    const Joueur & operator++(){//deplacement gauche de 1 (plus grand colonne a gauche)
+          Joueur.position=this.position++;
+          if (Joueur.position>vitrail.getColonne()){
+            throw std::out_of_range("Exception out_of_range - Position sur le bord deja");
+          }
+            return Joueur;
+    }
+    const Joueur & operator-=(const int position){//deplacement droite par tel nombre
+        Joueur.position=this.position+position;
+        if (Joueur.position<0){
+            throw std::out_of_range("Exception out_of_range - mouvement invalide de trop vers la droite");
+          }
+        return Joueur;
+    }
+
+    const Joueur & operator~(){
+        //permet remettre vitrier extreme gauche
+        Joueur.position=vitrail.getColonne(); //plus a gauche c'est nombre max de colonnes
+        return Joueur;
+    }
+    const Joueur & operator<<(){
+        //TO_DO, permet afficher etat d'un joueur
+        cout<<nom <<": "<<points<<" points"<<endl;
+        cout<<endl;
+        cout<<"Vitrier a la position "<<position<<endl;
+        cout<<"Plan:"<<endl;
+        vitrail.construireVitrail(); //va afficher le vitrail courant du Joueur
+    }
 
 };
 #endif // Joueur
