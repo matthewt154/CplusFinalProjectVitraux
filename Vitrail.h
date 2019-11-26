@@ -7,7 +7,7 @@
 using namespace std;
 class Vitrail {
 private:
-    char** fenetre; //tableau 2D alloue dynamique
+    char** fenetre; //Double pointeur au tableau 2D alloue dynamique
     const char couleurs [5]= {'G', 'J','B','R','O'}; //couleurs pre-definis des vitres
     int colonnes, rows;
 public:
@@ -24,7 +24,7 @@ public:
 
         for (int i=0; i<colonnes; i++) { //pour chaque colonne
             first=second=0; //NULL maybe?
-            first= couleurs[rand() %5]; //choisit 2 couleurs aleatoire de la liste
+            first= couleurs[rand() %5]; //choisit couleurs aleatoire de la liste
             while (true) { //assure que pas la meme couleur
                 second = couleurs[rand() %5];
                 if (second != first) {break;}
@@ -34,7 +34,7 @@ public:
             for (int p=0; p<H; p++) { //premiere couleur des vitres dans colonne
                 fenetre[p][i]= first;
                 }
-            for (int d=p; d<vitres; d++){//deuxieme couleur
+            for (int d=H; d<vitres; d++){//deuxieme couleur
                 fenetre[d][i]= second;
             }
         } //seulement 1 ou 2 couleurs par colonne
@@ -99,7 +99,7 @@ public:
         }
 
     }
-    int getColonne() {return this.colonnes;}
+    int getColonne() {return this.colonnes}
 
 };
 #endif // VITRAIL
