@@ -34,9 +34,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Joueur.h" />
-		<Unit filename="Vitrail.h" />
+		<Unit filename="include/Joueur.h" />
 		<Unit filename="include/Lots.h" />
+		<Unit filename="include/Vitrail.h" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Joueur.cpp" />
 		<Unit filename="src/Lots.cpp" />
 		<Extensions>
 			<code_completion />

@@ -1,22 +1,27 @@
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 #include "Lots.h"
 
 using namespace std;
-
+vector<char> surplus;
 // constructeur par defaut
 Lots::Lots(){
         lotFenetre = new char* [5];
         for(int i = 0; i<5; i++){
             lotFenetre[i] = new char[4];
             for(int y = 0; y < 4; i++){
-                fenetre[i][y] = couleurs[rand() %5];
+                lotFenetre[i][y] = couleurs[rand() %5];
             }
         }
     }
 
 // constructeur destructeur
-Lots::~Lots(){}
+Lots::~Lots(){
+     for (int i=0; i < 5; i++)
+        delete[] tab[i];
+    delete[] tab;
+}
 
 Lots::vector<char> ramasseVitre(char couleur, int numeroLot){
     vector<char> LotOfSameColor;
@@ -44,46 +49,42 @@ Lots::vector<char> ramasseVitre(char couleur, int numeroLot){
     return LotOfSameColor;
 }
 
-Lots::reset(){
-        for(int i = 0; i<5; i++){
+void Lots::reset_L(){
+     for(int i = 0; i<5; i++){
             for(int y = 0; y < 4; i++){
-                fenetre[i][y] = couleurs[rand() %5];
+                lotFenetre[i][y] = couleurs[rand() %5];
             }
         }
     }
 
-Vitrail &operator <<(){
-        /*
-        *
-        *   CHECK FOR IOSTREAM BOOK
-        *
-        */
-
-        cout<< "Lots: "<<endl;
-        cout <<""<<endl;
+std::ostream &operator<<(std::ostream &output, Lots &lot ) {
+        output<< "Lots: "<<endl;
+        output <<""<<endl;
 
         //imprime chaque char de chaque lot
         for (int i=0; i<5; i++) {
             for (int j=0; j<4; j++) {
-                cout <<lotFenetre[i][j] <<"  ";
+                output <<lot.lotFenetre[i][j] <<"  ";
             }
-            cout <<""<<endl;
+            output <<""<<endl;
         }
-
-        //nombre au bas de la matrice
+         //nombre au bas de la matrice
         for (int n=5; n>=0; n--) {
-            cout <<n<<"  ";
+            output <<n<<"  ";
         }
 
-        cout<<"Surplus:"
-        cout <<""<<endl;
+        output<<"Surplus:";
+        output <<""<<endl;
 
         //imprimer le lot de surplus
-        cout<< "[";
-        for(vector <char> :: iterator it = v.begin(); it != v.end(); ++it){
-            cout<<*it<< "  ";
+        output<< "[";
+        for(vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
+            output<<*it<< "  ";
         }
-        cout<< "]";
+        output<< "]";
 
-    }
+
+        return output;
+}
+
 
