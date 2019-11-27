@@ -1,20 +1,13 @@
-<<<<<<< HEAD:include/Vitrail.h
-#ifndef VITRAIL_H
-#define VITRAIL_H
 #include <cstdlib> //rand operation
 #include <stdexcept> //invalid argument exception
 #include <vector>
+#include "Vitrail.h"
 
-using namespace std;
-class Vitrail {
-private:
-    char** fenetre; //Double pointeur au tableau 2D alloue dynamique
-    const char couleurs [5]= {'G','J','B','R','O'}; //couleurs pre-definis des vitres
-    int colonnes, rows;
-public:
-    Vitrail(int colonnes, int vitres)  {
-        this->colonnes = colonnes;
-        this->rows=vitres;
+using namespace std
+//constructeur
+Vitrail::Vitrail(int colonnes, int vitres)  {
+        this.colonnes = colonnes;
+        this.rows=vitres;
         //vitres --> rows
         fenetre = new char*[colonnes];
 
@@ -39,25 +32,22 @@ public:
                 fenetre[d][i]= second;
             }
         } //seulement 1 ou 2 couleurs par colonne
+}
 
-    }
-
-    int construireVitrail(std::vector<char> vitres, int colonne) {
+Vitrail::construireVitrail(std ::vector<char> vitres, int colonne) {
         //prend les vitres du vector, place dans colonne
         //si corrspond a couleur necessaire remplace avec x (complete)
         //retourne int (how many placed successfully)
         //si colonne complete lancer invalid argument
-        if(estComplete(colonne)){
-                throw std::invalid_argument("Colonne déja complété");
-        }
+        if (estComplete()) {throw std:invalid_argument("Colonne déja complété");}
         int success=0; //combien de vitres places
         for (int i=0; i<rows ; i++) {
             if (!vitres.empty()) { //vector not empty
-                if (fenetre[i][colonne]==vitres.front()) {
+                if (fenetre[i][colonnes]==vitres.front()) {
                     fenetre[i][colonne]='X';
                     //reduce size of vector (with swap, new vector, and optimises capacity)
                     vector<char>v(vitres.size()-1);
-                    vitres.swap(v); //effectively reduces size to new size-1
+                    vector<char>vitres.swap(v); //effectively reduces size to new size-1
                     success++;
                 }
             }
@@ -65,16 +55,18 @@ public:
         return success;
     }
 
-    bool estComplete(int colonne) {
+Vitrail::estComplete(int colonne) {
 
         int complete=0;
         for (int i=0; i<rows; i++){
             if (fenetre[i][colonne]=='X') {complete++;} //counts as complete if value of row is X
         }
         if (complete==rows) {return true;} //all rows complete
-        return false;
+        else {return false; }
+
     }
-    bool estEnConstruction(int colonne){
+
+Vitrail::estEnConstruction(int colonne){
         //retourne vrai si au moins une vitre a ete installe
         bool construction=false;
         for (int i=0; i<rows; i++) {
@@ -85,55 +77,19 @@ public:
         return construction;
     }
 
-   ostream &operator<<(Vitrail &item ){
+Vitrail::Vitrail &operator <<(){
     //Cette classe doit aussi surcharger l’opérateur d’insertion << permettant l’affichage à la
     //console de l’état des vitraux:
     //include extra row for numbering (going down)
-        ostream &output;
         for (int i=0; i<rows; i++) {
             for (int j=0; j<colonnes; j++) {
-                output <<item.fenetre[i][j] <<"  ";
+                cout <<fenetre[i][j] <<"  ";
             }
-            output <<""<<endl;
+            cout <<""<<endl;
         }
         //numbering at bottom
         for (int n=colonnes; n>=0; n--) {
-            output <<n<<"  ";
+            cout <<n<<"  ";
         }
-        return output;
+
     }
-    int getColonne() {return this->colonnes;}
-
-};
-#endif // VITRAIL
-=======
-#ifndef VITRAIL_H
-#define VITRAIL_H
-
-
-using namespace std;
-class Vitrail {
-private:
-    char** fenetre; //Double pointeur au tableau 2D alloue dynamique
-    const char couleurs [5]= {'G', 'J','B','R','O'}; //couleurs pre-definis des vitres
-    int colonnes, rows;
-public:
-    Vitrail(int colonnes, int vitres); //constructeur
-
-    //prendre vitres du vector et mettre dans vitrail a colonne
-    int construireVitrail(std ::vector<char> vitres, int colonne);
-
-    //retourne vrai si colonne est complete
-    bool estComplete(int colonne);
-
-    //est ce que au moins un vitre installe
-    bool estEnConstruction(int colonne);
-
-    //affichage des vitrails
-    const &operator <<();
-
-    int getColonne() {return this.colonnes}
-
-};
-#endif // VITRAIL
->>>>>>> e3fa66677ce39027d06de389a6e1dc3674e00c83:Vitrail.h

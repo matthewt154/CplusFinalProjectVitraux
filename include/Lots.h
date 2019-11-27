@@ -36,7 +36,11 @@ public:
     /*
     *   > affichage des lot
     */
+<<<<<<< HEAD
     std::ostream &operator<<( Lots &lot );
+=======
+    const operator<<();
+>>>>>>> e3fa66677ce39027d06de389a6e1dc3674e00c83
 };
 
 #endif // LOTS_H
