@@ -8,7 +8,7 @@ private:
     string nom;
     int points;
     int position; //position du vitrier
-    Vitrail* vitrail; //need to set it somehow?
+    Vitrail* vitrail; //need to set it somehow? - parametre de constructeur
 
 public:
 
