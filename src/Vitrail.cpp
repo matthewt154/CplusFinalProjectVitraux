@@ -4,10 +4,13 @@
 #include "Vitrail.h"
 
 using namespace std
-//constructeur
+//constructeur par defaut
+Vitrail::Vitrail(){}
+
+//constructeur parametrizer
 Vitrail::Vitrail(int colonnes, int vitres)  {
-        this.colonnes = colonnes;
-        this.rows=vitres;
+        this->colonnes = colonnes;
+        this->rows=vitres;
         //vitres --> rows
         fenetre = new char*[colonnes];
 
@@ -32,22 +35,25 @@ Vitrail::Vitrail(int colonnes, int vitres)  {
                 fenetre[d][i]= second;
             }
         } //seulement 1 ou 2 couleurs par colonne
+
 }
 
-Vitrail::construireVitrail(std ::vector<char> vitres, int colonne) {
+int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) {
         //prend les vitres du vector, place dans colonne
         //si corrspond a couleur necessaire remplace avec x (complete)
         //retourne int (how many placed successfully)
         //si colonne complete lancer invalid argument
-        if (estComplete()) {throw std:invalid_argument("Colonne déja complété");}
+        if(estComplete(colonne)){
+                throw std::invalid_argument("Colonne déja complété");
+        }
         int success=0; //combien de vitres places
         for (int i=0; i<rows ; i++) {
             if (!vitres.empty()) { //vector not empty
-                if (fenetre[i][colonnes]==vitres.front()) {
+                if (fenetre[i][colonne]==vitres.front()) {
                     fenetre[i][colonne]='X';
                     //reduce size of vector (with swap, new vector, and optimises capacity)
                     vector<char>v(vitres.size()-1);
-                    vector<char>vitres.swap(v); //effectively reduces size to new size-1
+                    vitres.swap(v); //effectively reduces size to new size-1
                     success++;
                 }
             }
@@ -62,7 +68,7 @@ Vitrail::estComplete(int colonne) {
             if (fenetre[i][colonne]=='X') {complete++;} //counts as complete if value of row is X
         }
         if (complete==rows) {return true;} //all rows complete
-        else {return false; }
+        return false;
 
     }
 
@@ -77,19 +83,20 @@ Vitrail::estEnConstruction(int colonne){
         return construction;
     }
 
-Vitrail::Vitrail &operator <<(){
+Vitrail::ostream &operator<<(ostream &output, Vitrail &item ){
     //Cette classe doit aussi surcharger l’opérateur d’insertion << permettant l’affichage à la
     //console de l’état des vitraux:
     //include extra row for numbering (going down)
         for (int i=0; i<rows; i++) {
             for (int j=0; j<colonnes; j++) {
-                cout <<fenetre[i][j] <<"  ";
+                output <<item.fenetre[i][j] <<"  ";
             }
-            cout <<""<<endl;
+            output <<""<<endl;
         }
         //numbering at bottom
         for (int n=colonnes; n>=0; n--) {
-            cout <<n<<"  ";
+            output <<n<<"  ";
         }
-
+        return output;
     }
+    int getColonne() {return this->colonnes;}

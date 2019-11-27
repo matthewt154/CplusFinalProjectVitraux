@@ -9,3 +9,30 @@
 	<iostream>
 	<vector>
 
+1574827953 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
+	<iostream>
+	<cstdlib>
+	<vector>
+	"Lots.h"
+
+1574837914 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
+	<iostream>
+	<vector>
+
+1574843674 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+	"Lots.h"
+	"Vitrail.h"
+	"Joueur.h"
+	<iostream>
+
+1574843313 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
+	<vector>
+
+1574843184 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
+
+1574843175 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
+	<iostream>
+	<stdexcept>
+	"Vitrail.h"
+	"Joueur.h"
+

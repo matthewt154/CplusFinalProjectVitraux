@@ -17,6 +17,7 @@ private:
 public:
     Lots();
     ~Lots();
+
     //double pointeur de matrice du lot
     static char** lotFenetre;
 
@@ -36,11 +37,9 @@ public:
     /*
     *   > affichage des lot
     */
-<<<<<<< HEAD
+
     std::ostream &operator<<( Lots &lot );
-=======
-    const operator<<();
->>>>>>> e3fa66677ce39027d06de389a6e1dc3674e00c83
+
 };
 
 #endif // LOTS_H

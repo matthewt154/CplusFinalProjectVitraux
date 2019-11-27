@@ -37,9 +37,9 @@
 		<Unit filename="include/Joueur.h" />
 		<Unit filename="include/Lots.h" />
 		<Unit filename="include/Vitrail.h" />
-		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Joueur.cpp" />
 		<Unit filename="src/Lots.cpp" />
+		<Unit filename="src/projetCSI2772.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
