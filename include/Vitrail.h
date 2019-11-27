@@ -8,7 +8,7 @@ using namespace std;
 class Vitrail {
 private:
     char** fenetre; //Double pointeur au tableau 2D alloue dynamique
-    const char couleurs [5]= {'G', 'J','B','R','O'}; //couleurs pre-definis des vitres
+    const char couleurs [5]= {'G','J','B','R','O'}; //couleurs pre-definis des vitres
     int colonnes, rows;
 public:
     Vitrail(int colonnes, int vitres)  {

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1574827953 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
+	<iostream>
+	<cstdlib>
+	<vector>
+	"Lots.h"
+
+1574827932 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
+	<iostream>
+	<vector>
+
