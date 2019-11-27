@@ -6,5 +6,5 @@ Joueur::Joueur(Vitrail* vit): vitrail(vit){}
 
 Joueur::~Joueur()
 {
-    delete vitrail;
+    delete vit;
 }

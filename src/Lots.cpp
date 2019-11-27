@@ -3,8 +3,8 @@
 #include <vector>
 #include "Lots.h"
 
-using namespace std;
-vector<char> surplus;
+std::vector<char> surplus;
+char** Lots::lotFenetre;
 // constructeur par defaut
 Lots::Lots(){
         lotFenetre = new char* [5];
@@ -19,30 +19,30 @@ Lots::Lots(){
 // constructeur destructeur
 Lots::~Lots(){
      for (int i=0; i < 5; i++)
-        delete[] tab[i];
-    delete[] tab;
+        delete[] lotFenetre[i];
+    delete[] lotFenetre;
 }
 
-Lots::vector<char> ramasseVitre(char couleur, int numeroLot){
-    vector<char> LotOfSameColor;
+std::vector<char> ramasseVitre(char couleur, int numeroLot){
+    std::vector<char> LotOfSameColor;
 
     if(numeroLot < 0){
 
-            for(vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
+            for(std::vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
                 if(*it == couleur){
                     LotOfSameColor.push_back(*it);
-                    *it == ".";
+                    *it == '.';
                 }
             }
     }else{
 
-        for(auto &vitreChar: fenetre[numeroLot]){
+        for(auto &vitreChar: Lots::lotFenetre[numeroLot]){
                 if(vitreChar == couleur){
                     LotOfSameColor.push_back(couleur);
-                    vitreChar = ".";
+                    vitreChar = '.';
                 }else{
                     surplus.push_back(vitreChar);
-                    vitreChar = ".";
+                    vitreChar = '.';
                 }
             }
     }
@@ -58,15 +58,15 @@ void Lots::reset_L(){
     }
 
 std::ostream &operator<<(std::ostream &output, Lots &lot ) {
-        output<< "Lots: "<<endl;
-        output <<""<<endl;
+        output<< "Lots: "<<std::endl;
+        output <<""<<std::endl;
 
         //imprime chaque char de chaque lot
         for (int i=0; i<5; i++) {
             for (int j=0; j<4; j++) {
                 output <<lot.lotFenetre[i][j] <<"  ";
             }
-            output <<""<<endl;
+            output <<""<<std::endl;
         }
          //nombre au bas de la matrice
         for (int n=5; n>=0; n--) {
@@ -74,11 +74,11 @@ std::ostream &operator<<(std::ostream &output, Lots &lot ) {
         }
 
         output<<"Surplus:";
-        output <<""<<endl;
+        output <<""<<std::endl;
 
         //imprimer le lot de surplus
         output<< "[";
-        for(vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
+        for(std::vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
             output<<*it<< "  ";
         }
         output<< "]";

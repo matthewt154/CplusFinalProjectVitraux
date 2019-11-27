@@ -15,8 +15,10 @@ private:
     const char couleurs [5]= {'G', 'J','B','R','O'};
 
 public:
+    Lots();
+    ~Lots();
     //double pointeur de matrice du lot
-    char** lotFenetre;
+    static char** lotFenetre;
 
     /*
     *   @param: couleur - pour une vitre, numeroLot - Lot associer au vitre
