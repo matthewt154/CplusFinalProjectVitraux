@@ -35,17 +35,18 @@ std::vector<char> ramasseVitre(char couleur, int numeroLot){
                 }
             }
     }else{
-
-        for(auto &vitreChar: Lots::lotFenetre[numeroLot]){
-                if(vitreChar == couleur){
-                    LotOfSameColor.push_back(couleur);
-                    vitreChar = '.';
-                }else{
-                    surplus.push_back(vitreChar);
-                    vitreChar = '.';
-                }
+        char *ptr=Lots::lotFenetre[numeroLot];
+        while(ptr){
+                        if(*ptr == couleur){
+                            LotOfSameColor.push_back(couleur);
+                            *ptr = '.';
+                        }else{
+                            surplus.push_back(*ptr);
+                            *ptr = '.';
+                        }
+                         ptr++;
+                    }
             }
-    }
     return LotOfSameColor;
 }
 

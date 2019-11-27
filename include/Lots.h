@@ -15,6 +15,7 @@ private:
     const char couleurs [5]= {'G', 'J','B','R','O'};
 
 public:
+
     Lots();
     ~Lots();
 
