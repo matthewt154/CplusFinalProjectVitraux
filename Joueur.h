@@ -12,7 +12,10 @@ private:
 
 public:
 
+    Joueur(nom) :points(0), position(0) {
+        this.nom=nom;
 
+    }
     const Joueur & operator++(){//deplacement gauche de 1 (plus grand colonne a gauche)
           Joueur.position=this.position++;
           if (Joueur.position>vitrail.getColonne()){
