@@ -5,13 +5,11 @@
 #include "Vitrail.h"
 
 using namespace std;
-//constructeur par defaut
-Vitrail::Vitrail(){}
+const char Vitrail::couleurs[]= {'G','J','B','R','O'}; //couleurs pre-definis des vitres
 
 //constructeur parametrizer
-Vitrail::Vitrail(int icolonnes, int vitres) {
-        this->colonnes = icolonnes;
-        this->rows=vitres;
+Vitrail::Vitrail(int icolonnes, int vitres) : colonnes(icolonnes), rows(vitres){
+
         //vitres --> rows
         fenetre = new char*[colonnes];
 
@@ -21,20 +19,25 @@ Vitrail::Vitrail(int icolonnes, int vitres) {
         int H; //nombre aleatoire, vitres de premiere couleur
 
         for (int i=0; i<colonnes; i++) { //pour chaque colonne
-            first=second=0; //NULL maybe?
+            first=0;
+            second=0; //NULL maybe?
             first= couleurs[rand() %5]; //choisit couleurs aleatoire de la liste
             while (true) { //assure que pas la meme couleur
                 second = couleurs[rand() %5];
                 if (second != first) {break;}
             }
+            fenetre[i] = new char[rows];
 
-            H=rand()%vitres; //random number in the range 0 to vitres (cases dans les colonnes)
+            H=rand()%rows; //random number in the range 0 to vitres (cases dans les colonnes)
+
             for (int p=0; p<H; p++) { //premiere couleur des vitres dans colonne
-                fenetre[p][i]= first;
+                fenetre[i][p]= first;
                 }
-            for (int d=H; d<vitres; d++){//deuxieme couleur
-                fenetre[d][i]= second;
+
+            for (int d=H; d<rows; d++){//deuxieme couleur
+                fenetre[i][d]= second;
             }
+
         } //seulement 1 ou 2 couleurs par colonne
 
 }

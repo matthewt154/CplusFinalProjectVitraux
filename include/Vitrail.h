@@ -8,14 +8,12 @@ using namespace std;
 class Vitrail {
 private:
 
-    const char couleurs [5]= {'G','J','B','R','O'}; //couleurs pre-definis des vitres
+    const static char couleurs []; //couleurs pre-definis des vitres
 
 public:
 
     char** fenetre; //Double pointeur au tableau 2D alloue dynamique
     int colonnes, rows;
-
-    Vitrail(); //constructeur par default
 
     Vitrail(int colonnes, int vitres); //constructeur parametrizer
 

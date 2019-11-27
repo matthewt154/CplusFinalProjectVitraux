@@ -5,7 +5,7 @@
 	<vector>
 	"Lots.h"
 
-1574827932 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
+1574837914 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
 	<iostream>
 	<vector>
 
@@ -36,4 +36,29 @@
 	<stdexcept>
 	"Vitrail.h"
 	"Joueur.h"
+
+1574844522 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
+	<iostream>
+	<stdexcept>
+	"Vitrail.h"
+	"Joueur.h"
+
+1574880700 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
+	<vector>
+	<iostream>
+
+1574843184 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
+
+1574884221 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+	"Lots.h"
+	"Vitrail.h"
+	"Joueur.h"
+	<iostream>
+
+1574884155 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\vitrail.cpp
+	<cstdlib>
+	<stdexcept>
+	<vector>
+	<ostream>
+	"Vitrail.h"
 
