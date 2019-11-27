@@ -32,7 +32,7 @@ public:
     /*
     *   > affichage des lot
     */
-    operator<<();
+    const operator<<();
 };
 
 #endif // LOTS_H
