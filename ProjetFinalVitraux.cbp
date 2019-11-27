@@ -39,6 +39,7 @@
 		<Unit filename="include/Vitrail.h" />
 		<Unit filename="src/Joueur.cpp" />
 		<Unit filename="src/Lots.cpp" />
+		<Unit filename="src/Vitrail.cpp" />
 		<Unit filename="src/projetCSI2772.cpp" />
 		<Extensions>
 			<code_completion />

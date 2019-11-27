@@ -1,15 +1,16 @@
 #include <cstdlib> //rand operation
 #include <stdexcept> //invalid argument exception
 #include <vector>
+#include <ostream>
 #include "Vitrail.h"
 
-using namespace std
+using namespace std;
 //constructeur par defaut
 Vitrail::Vitrail(){}
 
 //constructeur parametrizer
-Vitrail::Vitrail(int colonnes, int vitres)  {
-        this->colonnes = colonnes;
+Vitrail::Vitrail(int icolonnes, int vitres) {
+        this->colonnes = icolonnes;
         this->rows=vitres;
         //vitres --> rows
         fenetre = new char*[colonnes];
@@ -61,7 +62,7 @@ int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) {
         return success;
     }
 
-Vitrail::estComplete(int colonne) {
+bool Vitrail::estComplete(int colonne) {
 
         int complete=0;
         for (int i=0; i<rows; i++){
@@ -72,7 +73,7 @@ Vitrail::estComplete(int colonne) {
 
     }
 
-Vitrail::estEnConstruction(int colonne){
+bool Vitrail::estEnConstruction(int colonne){
         //retourne vrai si au moins une vitre a ete installe
         bool construction=false;
         for (int i=0; i<rows; i++) {
@@ -83,20 +84,20 @@ Vitrail::estEnConstruction(int colonne){
         return construction;
     }
 
-Vitrail::ostream &operator<<(ostream &output, Vitrail &item ){
+std::ostream &operator<<(ostream &output, Vitrail &item ){
     //Cette classe doit aussi surcharger l’opérateur d’insertion << permettant l’affichage à la
     //console de l’état des vitraux:
     //include extra row for numbering (going down)
-        for (int i=0; i<rows; i++) {
-            for (int j=0; j<colonnes; j++) {
+        for (int i=0; i<item.rows; i++) {
+            for (int j=0; j<item.colonnes; j++) {
                 output <<item.fenetre[i][j] <<"  ";
             }
             output <<""<<endl;
         }
         //numbering at bottom
-        for (int n=colonnes; n>=0; n--) {
+        for (int n=item.colonnes; n>=0; n--) {
             output <<n<<"  ";
         }
         return output;
     }
-    int getColonne() {return this->colonnes;}
+int Vitrail::getColonne() {return this->colonnes;}

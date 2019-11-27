@@ -1,19 +1,23 @@
 #ifndef VITRAIL_H
 #define VITRAIL_H
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
 class Vitrail {
 private:
-    char** fenetre; //Double pointeur au tableau 2D alloue dynamique
+
     const char couleurs [5]= {'G','J','B','R','O'}; //couleurs pre-definis des vitres
-    int colonnes, rows;
+
 public:
+
+    char** fenetre; //Double pointeur au tableau 2D alloue dynamique
+    int colonnes, rows;
 
     Vitrail(); //constructeur par default
 
-    Vitrail(int colonnes, int vitres){}; //constructeur parametrizer
+    Vitrail(int colonnes, int vitres); //constructeur parametrizer
 
     //prendre vitres du vector et mettre dans vitrail a colonne
     int construireVitrail(vector<char> vitres, int colonne);
@@ -25,7 +29,7 @@ public:
     bool estEnConstruction(int colonne);
 
     //affichage des vitrails
-    ostream &operator<<(Vitrail &);
+    std::ostream &operator<<(Vitrail &);
 
     int getColonne();
 

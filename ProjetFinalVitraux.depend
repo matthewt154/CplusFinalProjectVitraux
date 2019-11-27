@@ -25,12 +25,13 @@
 	"Joueur.h"
 	<iostream>
 
-1574843313 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
+1574845044 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
 	<vector>
+	<iostream>
 
 1574843184 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
 
-1574843175 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
+1574844522 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
 	<iostream>
 	<stdexcept>
 	"Vitrail.h"

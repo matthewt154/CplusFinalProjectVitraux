@@ -17,7 +17,7 @@ Joueur::~Joueur(){
 }
 Joueur& Joueur::operator++(){//deplacement gauche de 1 (plus grand colonne a gauche)
           this->position++;
-          if ((*this).position>vitrail.getColonne()){
+          if ((*this).position>vitrail->getColonne()){
             throw std::out_of_range("Exception out_of_range - Position sur le bord deja");
           }
         return *this;
