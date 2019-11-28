@@ -27,7 +27,7 @@ public:
     bool estEnConstruction(int colonne);
 
     //affichage des vitrails
-    std::ostream &operator<<(Vitrail &);
+    std::ostream &operator<<(Vitrail *);
 
     int getColonne();
 

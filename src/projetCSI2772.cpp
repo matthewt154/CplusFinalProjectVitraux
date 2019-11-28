@@ -2,14 +2,17 @@
 #include "Vitrail.h"
 #include "Joueur.h"
 #include <iostream>
-
+#include "ostreamTest.h"
 using namespace std;
 
 int main(){
-
+    Test test;
+    cout <<test<<endl;
+    /*
     int nColonne = 7;               //valeur par defaut de colonne du vitrail
     int nVitre = 5;                 // valeur par defaut du nombre de vitre par colonne
-    Vitrail* vitre = new Vitrail(nColonne, nVitre);     //initialize la grille de vitrail pour jouer
+    Vitrail* vitre=new Vitrail(nColonne, nVitre);     //initialize la grille de vitrail pour jouer
+    cout<< vitre <<endl;
 
      //demande a utilisateur le nombre de vitre et colonne sinon defaut
     string name;
@@ -28,6 +31,7 @@ int main(){
     }
 
 */
+
     return 0;
 
 };

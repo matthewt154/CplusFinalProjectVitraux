@@ -87,20 +87,24 @@ bool Vitrail::estEnConstruction(int colonne){
         return construction;
     }
 
-std::ostream &operator<<(ostream &output, Vitrail &item ){
+std::ostream &operator<<(std::ostream &output, const Vitrail *item ){
     //Cette classe doit aussi surcharger l’opérateur d’insertion << permettant l’affichage à la
     //console de l’état des vitraux:
     //include extra row for numbering (going down)
-        for (int i=0; i<item.rows; i++) {
-            for (int j=0; j<item.colonnes; j++) {
-                output <<item.fenetre[i][j] <<"  ";
+        /*
+        for (int i=0; i<item->rows; i++) {
+            for (int j=0; j<item->colonnes; j++) {
+                output <<item->fenetre[i][j] <<"  ";
             }
             output <<""<<endl;
         }
         //numbering at bottom
-        for (int n=item.colonnes; n>=0; n--) {
+        for (int n=item->colonnes; n>=0; n--) {
             output <<n<<"  ";
         }
+        return output;
+        */
+        output<<3;
         return output;
     }
 int Vitrail::getColonne() {return this->colonnes;}
