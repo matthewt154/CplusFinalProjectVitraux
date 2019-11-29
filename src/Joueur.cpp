@@ -37,7 +37,7 @@ Joueur& Joueur::operator~(){
         return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, Joueur &player ) {
+std::ostream &operator<<(std::ostream &out, const Joueur& player ) {
         //permet afficher etat d'un joueur
         out<<player.nom <<" : "<<player.points<<" points"<<endl;
         out<<endl;

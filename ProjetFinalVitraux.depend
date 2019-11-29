@@ -62,17 +62,18 @@
 	<ostream>
 	"Vitrail.h"
 
-1574890092 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\joueur.cpp
+1574996074 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\joueur.cpp
 	<iostream>
 	<stdexcept>
 	"Vitrail.h"
 	"Joueur.h"
 
-1574904758 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\vitrail.h
+1574996684 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\vitrail.h
 	<vector>
 	<iostream>
 
-1574904746 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\joueur.h
+1574996032 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\joueur.h
+	<ostream>
 
 1574902615 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\lots.cpp
 	<iostream>
@@ -84,21 +85,24 @@
 	<iostream>
 	<vector>
 
-1574907348 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+1575001226 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\projetcsi2772.cpp
 	"Lots.h"
 	"Vitrail.h"
 	"Joueur.h"
 	<iostream>
 	"ostreamTest.h"
+	<vector>
 
-1574904581 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\vitrail.cpp
-	<cstdlib>
+1575006059 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\vitrail.cpp
+	<stdlib.h>
 	<stdexcept>
 	<vector>
-	<ostream>
+	<iostream>
+	<time.h>
 	"Vitrail.h"
 
-1574905466 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\ostreamtest.cpp
+1574909126 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\ostreamtest.cpp
+	"ostreamTest.h"
 	<ostream>
 	<iostream>
 

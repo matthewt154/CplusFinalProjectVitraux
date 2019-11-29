@@ -9,11 +9,11 @@ class Vitrail {
 private:
 
     const static char couleurs []; //couleurs pre-definis des vitres
-
-public:
-
     char** fenetre; //Double pointeur au tableau 2D alloue dynamique
     int colonnes, rows;
+public:
+
+
 
     Vitrail(int colonnes, int vitres); //constructeur parametrizer
 
@@ -27,10 +27,11 @@ public:
     bool estEnConstruction(int colonne);
 
     //affichage des vitrails
-    std::ostream &operator<<(Vitrail *);
+    friend std::ostream &operator<<(std::ostream& os, const Vitrail *vitrail);
 
     int getColonne();
 
 };
+std::ostream &operator<<(std::ostream& os, const Vitrail *vitrail);
 #endif // VITRAIL
 

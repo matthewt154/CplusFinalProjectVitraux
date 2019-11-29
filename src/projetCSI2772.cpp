@@ -3,11 +3,19 @@
 #include "Joueur.h"
 #include <iostream>
 #include "ostreamTest.h"
+#include <vector>
 using namespace std;
 
 int main(){
-    Test test;
-    cout <<test<<endl;
+    Vitrail* vit=new Vitrail(7,5);
+    cout <<vit<<endl;
+    vector<char> vect{'C','O','J','O','G'};
+    cout<<"Appel a construireVitrail"<<endl;
+    vit->construireVitrail(vect, 5);
+    cout<<vit<<endl;
+    bool comp=vit->estEnConstruction(5);
+    if (comp==true){cout<<"Complete";}
+    else {cout<<"Not complete";}
     /*
     int nColonne = 7;               //valeur par defaut de colonne du vitrail
     int nVitre = 5;                 // valeur par defaut du nombre de vitre par colonne

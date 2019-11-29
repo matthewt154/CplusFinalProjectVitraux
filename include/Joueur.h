@@ -1,16 +1,16 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
-
+#include <ostream>
 using namespace std;
 class Joueur {
 
 private:
-
-public:
     string nom;
     int points;
     int position; //position du vitrier
     Vitrail* vitrail; //need to set it somehow? - parametre de constructeur
+public:
+
 
     Joueur(); //constructeur par default
 
@@ -24,8 +24,10 @@ public:
 
     Joueur& operator~(); //remettre position a extreme gauche
 
-    std::ostream &operator<<(Joueur &); //afficher etat d'un joueur
+    friend std::ostream &operator<<(std::ostream &out, const Joueur & player ); //afficher etat d'un joueur
 
 };
+
+std::ostream &operator<<(std::ostream &out, const Joueur & player );
 #endif // Joueur
 
