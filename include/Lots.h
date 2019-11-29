@@ -13,14 +13,14 @@ private:
     // Vector pour grader le surplus des vitraux (Char associer à couleur)
     std::vector<char> surplus;
     const char couleurs [5]= {'G', 'J','B','R','O'};
-
+    char** lotFenetre;
 public:
 
     Lots();
     ~Lots();
 
     //double pointeur de matrice du lot
-    static char** lotFenetre;
+
 
     /*
     *   @param: couleur - pour une vitre, numeroLot - Lot associer au vitre
@@ -39,8 +39,9 @@ public:
     *   > affichage des lot
     */
 
-    std::ostream &operator<<( Lots &lot );
+    friend std::ostream &operator<<(std::ostream &os, Lots &lot );
 
 };
 
+std::ostream &operator<<(std::ostream &os, Lots &lot );
 #endif // LOTS_H

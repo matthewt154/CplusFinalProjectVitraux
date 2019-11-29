@@ -25,6 +25,13 @@ int main(){
     cout <<joueur<<endl;
     ~joueur;
     cout<<joueur<<endl;
+
+    Lots lots; //testing lots
+    cout <<lots;
+    lots.ramasseVitre('B',2);
+    cout<<lots;
+    lots.reset_L();
+    cout<<lots;
     /*
     int nColonne = 7;               //valeur par defaut de colonne du vitrail
     int nVitre = 5;                 // valeur par defaut du nombre de vitre par colonne

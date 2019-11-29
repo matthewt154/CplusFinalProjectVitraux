@@ -19,7 +19,9 @@ Vitrail::Vitrail(int icolonnes, int vitres) : colonnes(icolonnes), rows(vitres){
         //cout << "Vitrail constructor begin"<<endl;
         //the array works like fenetre [rows][colonnes]
         fenetre = new char*[rows]; //creation des rangees
-        for (int c=0; c<rows; c++) {fenetre[c]=new char[colonnes]; }//creation des colonnes
+        for (int c=0; c<rows; c++) {
+                fenetre[c]=new char[colonnes];
+        }//creation des colonnes
         //cout <<"Creation de colonnes et de rows succes"<<endl;
         char first,second;
 
