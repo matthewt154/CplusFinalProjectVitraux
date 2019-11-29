@@ -18,6 +18,11 @@ Joueur::Joueur(string name, Vitrail& _vitrail) :vitrail(&_vitrail), points(0), p
 Joueur::~Joueur(){
     delete vitrail;
 }
+int Joueur::getPosition() {return this->position; }
+Vitrail* Joueur::getVitrail() {return this->vitrail; }
+//changer les points
+void Joueur::changerPoints(int p) {this->points = this->points + p;}
+
 //WORKS
 Joueur& Joueur:: operator--( int){//deplacement gauche de 1 (plus grand colonne a gauche)
           this->position--;

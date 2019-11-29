@@ -62,7 +62,7 @@
 	<ostream>
 	"Vitrail.h"
 
-1575009380 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\joueur.cpp
+1575055033 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\joueur.cpp
 	<iostream>
 	<stdexcept>
 	"Vitrail.h"
@@ -72,25 +72,26 @@
 	<vector>
 	<iostream>
 
-1575009319 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\joueur.h
+1575055031 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\joueur.h
 	<ostream>
 
-1575013675 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\lots.cpp
+1575055769 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\lots.cpp
 	<iostream>
 	<stdlib.h>
 	<vector>
 	"Lots.h"
 
-1575010514 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\lots.h
+1575054484 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\lots.h
 	<iostream>
 	<vector>
 
-1575013597 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+1575055674 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\projetcsi2772.cpp
 	"Lots.h"
 	"Vitrail.h"
 	"Joueur.h"
 	<iostream>
 	"ostreamTest.h"
+	<stdexcept>
 	<vector>
 
 1575009884 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\vitrail.cpp

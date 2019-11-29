@@ -19,6 +19,8 @@ public:
     Lots();
     ~Lots();
 
+    bool isEmpty();
+
     //double pointeur de matrice du lot
 
 

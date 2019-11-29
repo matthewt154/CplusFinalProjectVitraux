@@ -18,6 +18,9 @@ public:
 
     ~Joueur(); //destructeur
 
+    int getPosition();
+    Vitrail* getVitrail();
+    void changerPoints(int points); //changer les points
     Joueur& operator--(int ); //deplacement gauche de 1, postfix increment
 
     Joueur& operator-=(const int position); //deplacement droite par tel nombre

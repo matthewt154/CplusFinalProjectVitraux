@@ -26,6 +26,18 @@ Lots::~Lots(){
     delete[] lotFenetre;
 }
 
+bool Lots::isEmpty() { //check si lots et son surplus est vide
+    if (surplus.empty()) {
+        int cnt=0;
+        for(int i = 0; i<5; i++){
+            if (lotFenetre[0][i]=='.') { cnt++;} //only need to check first element of column
+        }
+        if (cnt==5) {return true; } //surplus vide et tout les colonnes de lots sont vides
+        else {return false; }
+    } else {
+        return false;
+    }
+}
 //WORKS (without pointers)
 std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
     cout<<"Commencer ramasseVitre"<<endl;
@@ -40,27 +52,7 @@ std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
                 }
             }
     }else{
-        /*
-        I see what you were trying to do with pointers but it's causing a bug so
-        I'm going by the naive way for now
-        char *ptr;
-        ptr=lotFenetre[0];
-        while(ptr){
-            cout<<ptr;
-                        if(ptr[numeroLot] == couleur){
-                            LotOfSameColor.push_back(couleur);
-                            *ptr = '.';
-                        //cout<<"Found color"<<endl;
-                        }else{
-                            surplus.push_back(*ptr);
-                            *ptr = '.';
-                            //cout<<"Surplus"<<endl;
-                        }
-                         *ptr++;
-                         cout<<"Increment pointer"<<endl;
-                    }
-            }
-            */
+
         for (int i=0; i<4;i++){
             if (lotFenetre[i][numeroLot] ==couleur){
                 LotOfSameColor.push_back(couleur);
@@ -72,6 +64,7 @@ std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
         }
 
     }
+    cout<<"Fin ramasseVitre"<<endl;
     return LotOfSameColor;
 }
 
