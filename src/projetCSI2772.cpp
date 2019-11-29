@@ -7,6 +7,7 @@
 using namespace std;
 
 int main(){
+
     Vitrail* vit=new Vitrail(7,5);
     cout <<vit<<endl;
     vector<char> vect{'C','O','J','O','G'};
@@ -14,8 +15,16 @@ int main(){
     vit->construireVitrail(vect, 5);
     cout<<vit<<endl;
     bool comp=vit->estEnConstruction(5);
-    if (comp==true){cout<<"Complete";}
-    else {cout<<"Not complete";}
+    if (comp==true){cout<<"Complete"<<endl;}
+    else {cout<<"Not complete"<<endl;}
+    string name="Joueur A";
+    Joueur joueur(name, *vit); //creation de Joueur
+    joueur--;
+    cout<<joueur<<endl; //testing operator <<
+    joueur-=(2);
+    cout <<joueur<<endl;
+    ~joueur;
+    cout<<joueur<<endl;
     /*
     int nColonne = 7;               //valeur par defaut de colonne du vitrail
     int nVitre = 5;                 // valeur par defaut du nombre de vitre par colonne

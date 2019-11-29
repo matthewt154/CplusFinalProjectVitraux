@@ -72,17 +72,17 @@ int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) { //WORKS
         for (int i=0; i<rows ; i++) { //descend les rows
             if (!vitres.empty()) { //vector not empty
                 //doit iterer tous les elements du vecteur
-                cout<<"Not empty"<<endl;
+                //cout<<"Not empty"<<endl;
                 for (it=vitres.begin(); it!=vitres.end(); it++) {
                     if (fenetre[i][actualColumn]==*it) {
                         fenetre[i][actualColumn]='X';
                         cout<<"X added"<<endl;
                         //problem with erase
                         vitres.erase(it); //get rid of the value at position, automatically reduces size
-                        it--;
-                        cout <<"Vector element erased"<<endl;
+                        it--; //decrement iterator to compensate
+                        //cout <<"Vector element erased"<<endl;
                         success++;
-                        cout<<"Increment success"<<endl;
+                        //cout<<"Increment success"<<endl;
                     }
                 }
             }
