@@ -50,14 +50,16 @@ Joueur& Joueur::operator~(){
         return *this;
 }
 //WORKS
-std::ostream &operator<<(std::ostream &out, const Joueur& player ) { //WORKS
+std::ostream &operator<<(std::ostream &out, Joueur& player ) { //WORKS
         //permet afficher etat d'un joueur
         out<<player.nom <<" : "<<player.points<<" points"<<endl;
         out<<endl;
         out<<"Vitrier a la position: "<<player.position<<endl;
         out<<"Plan:"<<endl;
         out<<endl;
-        out<<player.vitrail; //va afficher le vitrail courant du Joueur
+        out<<"Start affiche"<<endl;
+        out<<player.vitrail; //va afficher le vitrail courant du Joueu
+        out<<"End affiche"<<endl;
 
         return out;
 }

@@ -76,6 +76,7 @@ int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) { //WORKS
                 //doit iterer tous les elements du vecteur
                 //cout<<"Not empty"<<endl;
                 for (it=vitres.begin(); it!=vitres.end(); it++) {
+                    cout<<"Checking"<<endl;
                     if (fenetre[i][actualColumn]==*it) {
                         fenetre[i][actualColumn]='X';
                         cout<<"X added"<<endl;

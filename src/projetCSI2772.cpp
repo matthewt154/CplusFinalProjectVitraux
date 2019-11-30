@@ -32,7 +32,8 @@ int unusedLots(vector<char> chosenLots ) {
 }
 
 //fonction pour joueur une ronde (pour un joueur)
-void playRound (Joueur joueur, Lots lots, int action) {
+//Pass by reference to directly modify
+void playRound (Joueur& joueur, Lots& lots, int action) {
     int col, vitCol;
     char couleur;
     cout<<joueur<<endl;
@@ -43,6 +44,7 @@ void playRound (Joueur joueur, Lots lots, int action) {
             else {break;}
         }
     //TO_DO exception handle if colour entered not from list
+    //TO_DO add code to strip characters spaces away
 
     cout<<"Entrer une couleur ('G', 'J','B','R','O') a prendre du lot: "; cin>>couleur; cout<<endl;
     std::vector<char> chosenLots=lots.ramasseVitre(couleur, col); //prendre les couleurs du lot
@@ -52,7 +54,7 @@ void playRound (Joueur joueur, Lots lots, int action) {
         //action 1 du joueur deplacer a colonne a droite et placer vitres
         while (true) {
             cout<<"Entrer la colonne ou deplacer le vitrier et placer les "<<chosenLots.size();
-            cout<<" vitres de Couleur - "<<couleur<<": ";
+            cout<<" vitres de Couleur - "<<chosenLots.front()<<": ";
             cin>>vitCol; cout<<endl;
             if (vitCol>6||vitCol< 0 ) {throw std::out_of_range("Entrer colonne de vitrail entre 6 et 0");}
             else {break;}
@@ -64,9 +66,13 @@ void playRound (Joueur joueur, Lots lots, int action) {
         } else { //deplacement droite de plus que 1
             joueur-=(deplacement);
         }
+        //PROBLEM modifies vitrail strangely (weird matrix style)
         //placer les vitres
-        int success;
-        success=joueur.getVitrail()->construireVitrail(chosenLots, vitCol);
+        int success=0;
+        joueur.getVitrail()->construireVitrail(chosenLots, vitCol); //this is correct but not outside of function
+        cout<<"test vitrail stuff"<<endl;
+        cout<<joueur<<endl;
+        cout<<success<<" vitres de PAS places"<<endl;
         //calcul des points
         int unused = unusedLots(chosenLots);
         int p=calculatePoints(joueur, unused); //appel a methode pour calculer les points
@@ -146,11 +152,20 @@ int main(){
             if (action<1||action>2) {throw std::invalid_argument("Entrer action 1 ou 2");}
             else {break;}
         }
+        /* This call works, but not in the method (could always get it out)
+        vector<char> vect{'C','O','J','O','G'};
+        joueur1.getVitrail()->construireVitrail(vect, 4);
+        cout<<joueur1;
+        */
         playRound(joueur1, lots, action); //appel a methode pour effectuer une ronde
         if (lots.isEmpty()) {
             gameflag=false;
             break;
         }
+        //PROBLEM modifies it but plan is weird matrix style (something wrong with modifying vitrail)
+        //Solution: pass by reference instead of object in playRound (solved)
+        //Solution 2:
+
         //etat modifier du joueur 1 et des lots
         cout <<joueur1 <<endl;
         cout<<lots<<endl;

@@ -27,7 +27,7 @@ public:
 
     Joueur& operator~(); //remettre position a extreme gauche
 
-    friend std::ostream &operator<<(std::ostream &out, const Joueur & player ); //afficher etat d'un joueur
+    friend std::ostream &operator<<(std::ostream &out, Joueur & player ); //afficher etat d'un joueur
 
 };
 

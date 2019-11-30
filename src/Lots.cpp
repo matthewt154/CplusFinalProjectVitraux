@@ -52,7 +52,7 @@ std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
                 }
             }
     }else{
-
+        int actualLots= 4-numeroLot; //have to reverse the lots index
         for (int i=0; i<4;i++){
             if (lotFenetre[i][numeroLot] ==couleur){
                 LotOfSameColor.push_back(couleur);
