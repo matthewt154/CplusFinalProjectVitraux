@@ -1,3 +1,13 @@
+/*
+*   Cours:        CSI2772 - Concept avancer en C++
+*   Session:      Autumne 2019
+*   Remise:       6 décembre 2019
+*   Author 1:     Mathieu Bellefeuille
+*   # etudiant:   65013369
+*   Auteur 2:     Matthew Tan
+*   # etudiant:   300028206
+*/
+
 #include <iostream>
 #include <stdexcept> //std::out_of_range
 #include "Vitrail.h"

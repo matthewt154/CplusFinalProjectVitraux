@@ -1,3 +1,13 @@
+/*
+*   Cours:        CSI2772 - Concept avancer en C++
+*   Session:      Autumne 2019
+*   Remise:       6 décembre 2019
+*   Author 1:     Mathieu Bellefeuille
+*   # etudiant:   65013369
+*   Auteur 2:     Matthew Tan
+*   # etudiant:   300028206
+*/
+
 #include "Lots.h"
 #include "Vitrail.h"
 #include "Joueur.h"
@@ -278,7 +288,7 @@ int main(){
             int success;
             success=joueurActif.getVitrail()->construireVitrail(chosenLots, joueurActif.getPosition());
             //calcul des points
-            int unused = unusedLots(chosenLots);
+//            int unused = unusedLots(chosenLots);
             joueurActif.calculatePoints(success); //appel a methode pour calculer les points
             //joueurActif.changerPoints(p); //ajouter les points au joueur
         }
