@@ -24,6 +24,26 @@ void Joueur::changerPoints(int p) {this->points = this->points + p;}
 
 int Joueur::getPoint(){return points;}
 
+//fonction pour calculer les points du joueur
+void Joueur::calculatePoints(int unusedVitres) {
+    int result=0;
+    cout<<"Calcul de points..."<<endl;
+    if (vitrail->estComplete(position)) { //colonne complete
+        cout<<"Colonne complete +3"<<endl;
+        result= result+3;
+        //calcul tout vitre entamer de 0 au vitrier
+        for (int i=0; i<position; i++) { //+1 si vitre en construction
+            if (vitrail->estEnConstruction(i)) {
+                    cout<<"+1 points"<<endl;
+                    result++;
+            }
+        }
+    }
+    result= result - unusedVitres; //-1 pour chaque vitre pas utilise
+    this->points+=result;
+    return;
+}
+
 //WORKS
 Joueur& Joueur:: operator--( int){//deplacement gauche de 1 (plus grand colonne a gauche)
           this->position--;
@@ -40,7 +60,7 @@ Joueur& Joueur::operator-=(const int num){//deplacement droite par tel nombre
         if (this->position < 0){
             throw std::out_of_range("Exception out_of_range - mouvement invalide de trop vers la droite");
           }
-          cout <<"Deplacement gauche de "<<num<<endl;
+          cout <<"Deplacement droite de "<<num<<endl;
         return *this;
 }
 //WORKS

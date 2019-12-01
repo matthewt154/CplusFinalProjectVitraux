@@ -38,6 +38,13 @@ public:
     int getPoint();
 
     /*
+    *   @param: int les vitres qui ne peuvent etre installe
+    *   Fonction pour calculer les points du joueur a la fin de chaque tour
+    *   @return: void
+    */
+    void calculatePoints(int unusedVitres);
+
+    /*
     *   @return: retrourne la position du vitrier du joueur
     */
     int getPosition();
@@ -73,6 +80,13 @@ public:
     *   > affiche l'etat du jeu du joueur
     */
     friend std::ostream &operator<<(std::ostream &out, Joueur & player ); //afficher etat d'un joueur
+
+    /*
+    *   @param: &lots reference aux lots disponibles, int action (quel action a effectuer)
+    *   Fonction pour joueur une ronde du jeu, appelle pour un joueur specifique
+    *   @return: void
+    */
+    //void playRound (Lots& lots, int action);
 
 };
 

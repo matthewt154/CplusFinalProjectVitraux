@@ -27,14 +27,15 @@ Lots::~Lots(){
 }
 
 bool Lots::getLot(char coul, int col){
-
+        bool result=false;
         for (int i=0; i<4;i++){
                 cout<<"getLot"<<endl;
-            if (lotFenetre[i][col] == coul){
-                return true;
+            if (lotFenetre[i][4-col] == coul){
+                result =  true;
+                break;
             }
         }
-    return false;
+    return result;
 }
 
 bool Lots::isEmpty() { //check si lots et son surplus est vide

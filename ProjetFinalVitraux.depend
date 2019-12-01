@@ -73,39 +73,41 @@
 	<time.h>
 	"Vitrail.h"
 
-1575096191 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\joueur.cpp
+1575223728 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\joueur.cpp
 	<iostream>
 	<stdexcept>
 	"Vitrail.h"
 	"Joueur.h"
 
-1574996684 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\vitrail.h
+1575217669 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\vitrail.h
 	<vector>
 	<iostream>
 
-1575095894 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\joueur.h
+1575223764 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\joueur.h
 	<ostream>
 
-1575095526 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\lots.cpp
+1575224574 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\lots.cpp
 	<iostream>
 	<stdlib.h>
 	<vector>
 	"Lots.h"
 
-1575054484 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\lots.h
+1575217669 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\lots.h
 	<iostream>
 	<vector>
 
-1575095836 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+1575224476 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\projetcsi2772.cpp
 	"Lots.h"
 	"Vitrail.h"
 	"Joueur.h"
 	<iostream>
+	<string.h>
+	<limits>
 	"ostreamTest.h"
 	<stdexcept>
 	<vector>
 
-1575094908 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\vitrail.cpp
+1575222814 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\vitrail.cpp
 	<stdlib.h>
 	<stdexcept>
 	<vector>

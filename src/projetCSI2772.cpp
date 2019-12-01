@@ -10,25 +10,7 @@
 using namespace std;
 //TO_DO make it pretty and comment beginning of functions comme conventions (i.e. param and return)
 
-//fonction pour calculer les points du joueur
-int calculatePoints(Joueur joueur, int unusedVitres) {
-    int result=0;
-    //Vitrail* jvitrail = joueur.getVitrail();
-    cout<<"entrer calc Point"<<endl;
-    if (joueur.getVitrail()->estComplete(joueur.getPosition())) { //colonne complete
-        cout<<"in condition"<<endl;
-        result= result+3;
-        //calcul tout vitre entamer de 0 au vitrier
-        for (int i=0; i<joueur.getPosition(); i++) { //+1 si vitre en construction
-            if (joueur.getVitrail()->estEnConstruction(i)) {result++; }
-        }
-    }
-    result= result - unusedVitres; //-1 pour chaque vitre pas utilise
-    return result;
-}
-
-
-//Methode construireVitrail retourn vitre pas utiliser ?????
+/*
 //calcul de vitres pas utilise dans vecteur apres placement sur vitrail
 int unusedLots(vector<char> chosenLots ) {
     //lots non utilises detruits
@@ -36,186 +18,14 @@ int unusedLots(vector<char> chosenLots ) {
     chosenLots.clear();
     return result;
 }
+*/
 
-
-//fonction pour joueur une ronde (pour un joueur)
-//Pass by reference to directly modify
-void playRound (Joueur& joueur, Lots& lots, int action) {
-    int col, vitCol;
-    char couleur;
-    vector<char> chosenLots;
-
-    //ACTIONS 1 ou 2 du joueur
-    if (action==1) {
-    cout<<joueur<<endl;
-    cout<<lots<<endl;
-//Utilisateur choisis un lots (deux prochain boucle while)
-    //Demande a l'utilisateur d'entree un choix de colonne
-    //VALEUR RETOUR = int col
-    while (true) {
-            cout<<"Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus): "; cin>>col; cout<<endl;
-            if (col>4 || col < -1) {
-                    cout<<"Entrer colonne correspondant a un lot: ";
-                    cout<<endl;
-            }
-            if(!(cin)){
-                    throw std::invalid_argument("Valeur fournir illegal - arret du program");
-            }else {
-                break;
-            }
-        }
-    //demande a l'utilisateur d'entree un choix de couleur a selectionner
-    //TO_DO add code to strip characters spaces away
-    //VALEUR RETOUR = char couleur
-    while(true){
-        cout<<"Entrer une couleur ( G , J , B , R , O ) a prendre du lot: "; cin>>couleur; cout<<endl;
-        if(couleur == 'G' || couleur == 'J' || couleur == 'B' || couleur == 'R' || couleur == 'O'){
-                if(lots.getLot(couleur,col)){
-                    chosenLots=lots.ramasseVitre(couleur, col); //prendre les couleurs du lot
-                    break;
-                }else{
-                    cout<<"La couleur selectionner n'est pas dans la colonne du lot"<<endl;
-                }
-        }
-        if(!(cin)){
-                    throw std::invalid_argument("Valeur fournir illegal - arret du program");
-        }
-        else{
-            cout<<"Couleur non approprier."<<endl;
-        }
-    }
-    //demande a l'utilisitateur pour place le lot dans vitrie
-    //VALEUR RETOUR = int vitCol
-    while (true) {
-            cout<<"Vous avez selectionner du lot "<<chosenLots.size()<<" vitres de Couleur - "<<chosenLots.front()<<endl;
-            cout<<"Selectionner une colonne entre 0 et vitrier pour placer votre selection: ";
-            cin>>vitCol; cout<<endl;
-            if (vitCol>joueur.getPosition() || vitCol< 0 ) {
-                    cout<< "Effectuez une selection entre 0 et le vitrier "<<joueur.getPosition();
-                    cout<<endl;
-            }
-            if(!(cin)){throw std::invalid_argument("Valeur fournir illegal - arret du program");}
-            else {break;}
-        }
-    //place vitrier du joueur a la bonne colonne
-        int deplacement = joueur.getPosition()-vitCol;
-        if (deplacement==1){//deplacement droit de 1
-            joueur--;
-        } else { //deplacement droite de plus que 1
-            joueur-=(deplacement);
-        }
-        //PROBLEM modifies vitrail strangely (weird matrix style)
-    //placer les vitres
-        int success=0;
-        Vitrail *temp = joueur.getVitrail();
-        success = temp->construireVitrail(chosenLots, vitCol); //this is correct but not outside of function
-
-    //calcul des points";
-        //Was crashing otherwise !!!!!
-        int result = 0;
-        if (joueur.getVitrail()->estComplete(joueur.getPosition())) { //colonne complete
-            cout<<"in condition"<<endl;
-            result= result+3;
-            //calcul tout vitre entamer de 0 au vitrier
-            for (int i=0; i<joueur.getPosition(); i++) { //+1 si vitre en construction
-                if (joueur.getVitrail()->estEnConstruction(i)) {result++; }
-            }
-        }
-        result= result - success; //-1 pour chaque vitre pas utilise
-        joueur.changerPoints(result);
-
-
-    }
-    if (action==2) { //Action 2 c'est de replacer a gauche
-        cout<<joueur<<endl;
-        cout<<lots<<endl;
-        int beforeVitrier = joueur.getPosition();
-        ~joueur; //methode qui place le vitrier a l'extreme gauche
-        //si utilisateur deja a la position extreme gauche
-        if(beforeVitrier == joueur.getPosition()){
-    //Utilisateur choisis un lots (deux prochain boucle while)
-            //Demande a l'utilisateur d'entree un choix de colonne
-            //VALEUR RETOUR = int col
-            cout<<"*****************************************"<<endl;
-            cout<<"Votre selection de lot sera placer par"<<endl;
-            cout<<"default dans la colonne la plus a gauche."<<endl;
-            cout<<"*****************************************"<<endl;
-            cout<<endl;
-            while (true) {
-                    cout<<"Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus): "; cin>>col; cout<<endl;
-                    if (col>4 || col < -1) {
-                            cout<<"Entrer colonne correspondant a un lot: ";
-                            cout<<endl;
-                    }
-                    if(!(cin)){
-                            throw std::invalid_argument("Valeur fournir illegal - arret du program");
-                    }else {
-                        break;
-                    }
-                }
-            //demande a l'utilisateur d'entree un choix de couleur a selectionner du lot
-            //TO_DO add code to strip characters spaces away
-            //VALEUR RETOUR = char couleur
-            while(true){
-
-            cout<<"Entrer une couleur ( G , J , B , R , O ) a prendre du lot: "; cin>>couleur; cout<<endl;
-            if(couleur == 'G' || couleur == 'J' || couleur == 'B' || couleur == 'R' || couleur == 'O'){
-                    if(lots.getLot(couleur,col)){
-                        chosenLots=lots.ramasseVitre(couleur, col); //prendre les couleurs du lot
-                        break;
-                    }else{
-                        cout<<"La couleur selectionner n'est pas dans la colonne du lot"<<endl;
-                    }
-            }
-            if(!(cin)){
-                        throw std::invalid_argument("Valeur fournir illegal - arret du program");
-            }
-            else{
-                cout<<"Couleur non approprier."<<endl;
-            }
-        }
-            int success;
-            success=joueur.getVitrail()->construireVitrail(chosenLots, joueur.getPosition());
-            //calcul des points
-            int unused = unusedLots(chosenLots);
-            int p=calculatePoints(joueur, unused); //appel a methode pour calculer les points
-            joueur.changerPoints(p); //ajouter les points au joueur
-        }
-    }//END OF ACTION 2
-
-}
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //fonction principal du programme
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 int main(){
-    /* Testing methods
-    Vitrail* vit=new Vitrail(7,5);
-    cout <<vit<<endl;
-    vector<char> vect{'C','O','J','O','G'};
-    cout<<"Appel a construireVitrail"<<endl;
-    vit->construireVitrail(vect, 5);
-    cout<<vit<<endl;
-    bool comp=vit->estEnConstruction(5);
-    if (comp==true){cout<<"Complete"<<endl;}
-    else {cout<<"Not complete"<<endl;}
-    string name="Joueur A";
-    //Test Joueur
-    Joueur joueur(name, *vit); //creation de Joueur
-    joueur--;
-    cout<<joueur<<endl; //testing operator <<
-    joueur-=(2);
-    cout <<joueur<<endl;
-    ~joueur;
-    cout<<joueur<<endl;
 
-    Lots lots; //testing lots
-    cout <<lots;
-    lots.ramasseVitre('B',2);
-    cout<<lots;
-    lots.reset_L();
-    cout<<lots;
-    */
     cout<<"| --------------------------------|"<<endl;
     cout<<"|   "<<"Bienvenu au Jeu du Vitrail"<<"    |"<<endl;
     cout<<"| --------------------------------|"<<endl;
@@ -328,8 +138,153 @@ int main(){
         cout<<joueur1;
         */
 
-        playRound(joueurActif, lots, action); //appel a methode pour effectuer une ronde
+        //BEGIN playRound
+    int col, vitCol;
+    char couleur;
+    vector<char> chosenLots;
 
+    //ACTIONS 1 ou 2 du joueur
+    if (action==1) {
+    cout<<joueurActif<<endl;
+    cout<<lots<<endl;
+//Utilisateur choisis un lots (deux prochain boucle while)
+    //Demande a l'utilisateur d'entree un choix de colonne
+    //VALEUR RETOUR = int col
+    while (true) {
+            cout<<"Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus): "; cin>>col; cout<<endl;
+            if (col>4 || col < -1) {
+                    cout<<"Entrer colonne correspondant a un lot: ";
+                    cout<<endl;
+            }
+            if(!(cin)){
+                    throw std::invalid_argument("Valeur fournir illegal - arret du program");
+            }else {
+                break;
+            }
+        }
+    //demande a l'utilisateur d'entree un choix de couleur a selectionner
+    //TO_DO add code to strip characters spaces away
+    //VALEUR RETOUR = char couleur
+    while(true){
+        cout<<"Entrer une couleur ( G , J , B , R , O ) a prendre du lot: "; cin>>couleur; cout<<endl;
+        if(couleur == 'G' || couleur == 'J' || couleur == 'B' || couleur == 'R' || couleur == 'O'){
+                if(lots.getLot(couleur,col)){
+                    chosenLots=lots.ramasseVitre(couleur, col); //prendre les couleurs du lot
+                    break;
+                }else{
+                    cout<<"La couleur selectionner n'est pas dans la colonne du lot"<<endl;
+                }
+        }
+        if(!(cin)){
+                    throw std::invalid_argument("Valeur fournir illegal - arret du program");
+        }
+        else{
+            cout<<"Couleur non approprier."<<endl;
+        }
+    }
+    //demande a l'utilisitateur pour place le lot dans vitrie
+    //VALEUR RETOUR = int vitCol
+    while (true) {
+            cout<<"Vous avez selectionner du lot "<<chosenLots.size()<<" vitres de Couleur - "<<chosenLots.front()<<endl;
+            cout<<"Selectionner une colonne entre 0 et vitrier pour placer votre selection: ";
+            cin>>vitCol; cout<<endl;
+            if (vitCol>joueurActif.getPosition() || vitCol< 0 ) {
+                    cout<< "Effectuez une selection entre 0 et le vitrier "<<joueurActif.getPosition();
+                    cout<<endl;
+            }
+            if(!(cin)){throw std::invalid_argument("Valeur fournir illegal - arret du program");}
+            else {break;}
+        }
+    //place vitrier du joueur a la bonne colonne
+        int deplacement = joueurActif.getPosition()-vitCol;
+        if (deplacement==1){//deplacement droit de 1
+            joueurActif--;
+        } else { //deplacement droite de plus que 1
+            joueurActif-=(deplacement);
+        }
+        //PROBLEM modifies vitrail strangely (weird matrix style)
+    //placer les vitres
+        int success=0;
+        Vitrail *temp = joueurActif.getVitrail();
+        success = temp->construireVitrail(chosenLots, vitCol); //this is correct but not outside of function
+
+    //calcul des points";
+        //Was crashing otherwise !!!!!
+        /*
+        int result = 0;
+        if (joueurActif.getVitrail()->estComplete(joueurActif.getPosition())) { //colonne complete
+            cout<<"in condition"<<endl;
+            result= result+3;
+            //calcul tout vitre entamer de 0 au vitrier
+            for (int i=0; i<joueurActif.getPosition(); i++) { //+1 si vitre en construction
+                if (joueur.getVitrail()->estEnConstruction(i)) {result++; }
+            }
+        }
+        */
+        //result= result - success; //-1 pour chaque vitre pas utilise
+        joueurActif.calculatePoints(success);
+        //joueurActif.changerPoints(result);
+
+
+    }
+    if (action==2) { //Action 2 c'est de replacer a gauche
+        cout<<joueurActif<<endl;
+        cout<<lots<<endl;
+        int beforeVitrier = joueurActif.getPosition();
+        ~joueurActif; //methode qui place le vitrier a l'extreme gauche
+        //si utilisateur deja a la position extreme gauche
+        if(beforeVitrier == joueurActif.getPosition()){
+    //Utilisateur choisis un lots (deux prochain boucle while)
+            //Demande a l'utilisateur d'entree un choix de colonne
+            //VALEUR RETOUR = int col
+            cout<<"*****************************************"<<endl;
+            cout<<"Votre selection de lot sera placer par"<<endl;
+            cout<<"default dans la colonne la plus a gauche."<<endl;
+            cout<<"*****************************************"<<endl;
+            cout<<endl;
+            while (true) {
+                    cout<<"Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus): "; cin>>col; cout<<endl;
+                    if (col>4 || col < -1) {
+                            cout<<"Entrer colonne correspondant a un lot: ";
+                            cout<<endl;
+                    }
+                    if(!(cin)){
+                            throw std::invalid_argument("Valeur fournir illegal - arret du program");
+                    }else {
+                        break;
+                    }
+                }
+            //demande a l'utilisateur d'entree un choix de couleur a selectionner du lot
+            //TO_DO add code to strip characters spaces away
+            //VALEUR RETOUR = char couleur
+            while(true){
+
+            cout<<"Entrer une couleur ( G , J , B , R , O ) a prendre du lot: "; cin>>couleur; cout<<endl;
+            if(couleur == 'G' || couleur == 'J' || couleur == 'B' || couleur == 'R' || couleur == 'O'){
+                    if(lots.getLot(couleur,col)){
+                        chosenLots=lots.ramasseVitre(couleur, col); //prendre les couleurs du lot
+                        break;
+                    }else{
+                        cout<<"La couleur selectionner n'est pas dans la colonne du lot"<<endl;
+                    }
+            }
+            if(!(cin)){
+                        throw std::invalid_argument("Valeur fournir illegal - arret du program");
+            }
+            else{
+                cout<<"Couleur non approprier."<<endl;
+            }
+        }
+            int success;
+            success=joueurActif.getVitrail()->construireVitrail(chosenLots, joueurActif.getPosition());
+            //calcul des points
+            int unused = unusedLots(chosenLots);
+            joueurActif.calculatePoints(success); //appel a methode pour calculer les points
+            //joueurActif.changerPoints(p); //ajouter les points au joueur
+        }
+    }//END OF ACTION 2
+
+        //END playRound
         //vas cree un appelle a l'autre joueur
         gameCounter++;
 

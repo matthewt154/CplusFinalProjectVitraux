@@ -28,7 +28,7 @@ Vitrail::Vitrail(int icolonnes, int vitres) : colonnes(icolonnes), rows(vitres){
 
         int H; //nombre aleatoire, vitres de premiere couleur
         int r; //random colour variable
-        srand(time(NULL)); //make sure it's truly random every time
+        //srand((unsigned)time(0)); //make sure it's truly random every time
         r=rand() %5;
         //cout<<r;
         for (int i=0; i<colonnes; i++) { //pour chaque colonne (row position in array)
@@ -55,14 +55,14 @@ Vitrail::Vitrail(int icolonnes, int vitres) : colonnes(icolonnes), rows(vitres){
             }
 
         } //seulement 1 ou 2 couleurs par colonne
-        //cout << "Vitrail constructor end"<<endl;
+        cout << "Vitrail constructor end"<<endl;
 
 }
 
 int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) { //WORKS
         //prend les vitres du vector, place dans colonne
         //si corrspond a couleur necessaire remplace avec x (complete)
-        //retourne int (how many placed successfully)
+        //retourne int (how many not placed successfully)
         //si colonne complete lancer invalid argument
         int actualColumn=colonnes-colonne-1; //colonnes-colonne parce que numerote a l'inverse
         vector<char>::iterator it;
