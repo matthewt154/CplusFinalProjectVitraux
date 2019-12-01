@@ -91,10 +91,10 @@ int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) { //WORKS
             }
             else {break;}
         }
-        return (initSize-success); //nombre de vitres PAS places
+        return (initSize-success); //nombre de vitres PAS placer
     }
 
-bool Vitrail::estComplete(int colonne) {
+bool Vitrail::estComplete(int colonne) {//WORKS TESTED
         int actualColumn= colonnes-colonne-1;
         int complete=0;
         for (int i=0; i<rows; i++){
@@ -139,4 +139,5 @@ std::ostream &operator<<(std::ostream &output, const Vitrail *item ){ //WORKS
         //output<<3;
         return output;
     }
+
 int Vitrail::getColonne() {return this->colonnes;}

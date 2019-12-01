@@ -1,65 +1,76 @@
 # depslib dependency file v1.0
-1574827953 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
+1575182925 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
 	<iostream>
-	<cstdlib>
+	<stdlib.h>
 	<vector>
 	"Lots.h"
 
-1574890131 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
+1575192315 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
 	<iostream>
 	<vector>
 
-1574827953 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
+1575088197 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
 	<iostream>
-	<cstdlib>
+	<stdlib.h>
 	<vector>
 	"Lots.h"
 
-1574837914 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
+1575088197 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
 	<iostream>
 	<vector>
 
-1574843674 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
-	"Lots.h"
-	"Vitrail.h"
-	"Joueur.h"
-	<iostream>
-
-1574845044 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
-	<vector>
-	<iostream>
-
-1574843184 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
-
-1574844522 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
-	<iostream>
-	<stdexcept>
-	"Vitrail.h"
-	"Joueur.h"
-
-1574844522 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
-	<iostream>
-	<stdexcept>
-	"Vitrail.h"
-	"Joueur.h"
-
-1574880700 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
-	<vector>
-	<iostream>
-
-1574843184 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
-
-1574884221 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+1575088197 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
 	"Lots.h"
 	"Vitrail.h"
 	"Joueur.h"
 	<iostream>
-
-1574884155 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\vitrail.cpp
-	<cstdlib>
+	"ostreamTest.h"
 	<stdexcept>
 	<vector>
+
+1575088197 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
+	<vector>
+	<iostream>
+
+1575088197 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
 	<ostream>
+
+1575088197 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
+	<iostream>
+	<stdexcept>
+	"Vitrail.h"
+	"Joueur.h"
+
+1575168952 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
+	<iostream>
+	<stdexcept>
+	"Vitrail.h"
+	"Joueur.h"
+
+1575192315 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
+	<vector>
+	<iostream>
+
+1575192315 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
+	<ostream>
+
+1575192363 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+	"Lots.h"
+	"Vitrail.h"
+	"Joueur.h"
+	<iostream>
+	<string.h>
+	<limits>
+	"ostreamTest.h"
+	<stdexcept>
+	<vector>
+
+1575191715 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\vitrail.cpp
+	<stdlib.h>
+	<stdexcept>
+	<vector>
+	<iostream>
+	<time.h>
 	"Vitrail.h"
 
 1575096191 source:c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\src\joueur.cpp
@@ -108,5 +119,29 @@
 	<iostream>
 
 1574909103 c:\users\tran\desktop\c++ csi2372_2772\projet final\projetfinalvitraux\cplusfinalprojectvitraux\include\ostreamtest.h
+	<ostream>
+
+1575088197 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\ostreamtest.cpp
+	"ostreamTest.h"
+	<ostream>
+	<iostream>
+
+1575088197 c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\ostreamtest.h
+	<ostream>
+
+1575088197 source:c:\users\mat\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\vitrail.cpp
+	<stdlib.h>
+	<stdexcept>
+	<vector>
+	<iostream>
+	<time.h>
+	"Vitrail.h"
+
+1575088197 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\ostreamtest.cpp
+	"ostreamTest.h"
+	<ostream>
+	<iostream>
+
+1575088197 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\ostreamtest.h
 	<ostream>
 

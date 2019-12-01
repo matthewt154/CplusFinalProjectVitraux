@@ -16,7 +16,7 @@ Lots::Lots(){ //WORKS
                 lotFenetre[i][y] = couleurs[rand() %5]; //loading random colours in Lots
             }
         }
-        cout<<"Creation success dun lot"<<endl;
+        cout<<"Test: (.cpp Lots)Creation success d'un lot"<<endl;
     }
 
 // constructeur destructeur
@@ -24,6 +24,17 @@ Lots::~Lots(){
      for (int i=0; i < 5; i++)
         delete[] lotFenetre[i];
     delete[] lotFenetre;
+}
+
+bool Lots::getLot(char coul, int col){
+
+        for (int i=0; i<4;i++){
+                cout<<"getLot"<<endl;
+            if (lotFenetre[i][col] == coul){
+                return true;
+            }
+        }
+    return false;
 }
 
 bool Lots::isEmpty() { //check si lots et son surplus est vide
@@ -54,12 +65,12 @@ std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
     }else{
         int actualLots= 4-numeroLot; //have to reverse the lots index
         for (int i=0; i<4;i++){
-            if (lotFenetre[i][numeroLot] ==couleur){
+            if (lotFenetre[i][actualLots] ==couleur){
                 LotOfSameColor.push_back(couleur);
-                lotFenetre[i][numeroLot]='.';
+                lotFenetre[i][actualLots]='.';
             } else{
-                surplus.push_back(lotFenetre[i][numeroLot]);
-                lotFenetre[i][numeroLot] = '.';
+                surplus.push_back(lotFenetre[i][actualLots]);
+                lotFenetre[i][actualLots] = '.';
             }
         }
 
@@ -98,7 +109,7 @@ std::ostream &operator<<(std::ostream &output, Lots &lot ) {
         }
         output<<endl;
         output<<"Surplus:";
-        output <<""<<std::endl;
+        output <<endl;
 
         //imprimer le lot de surplus
         output<< "[";

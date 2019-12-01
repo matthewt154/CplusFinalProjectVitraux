@@ -7,29 +7,51 @@ using namespace std;
 
 class Vitrail {
 private:
-
-    const static char couleurs []; //couleurs pre-definis des vitres
-    char** fenetre; //Double pointeur au tableau 2D alloue dynamique
+    //couleurs pre-definis des vitres
+    const static char couleurs [];
+    //Double pointeur au tableau 2D alloue dynamique
+    char** fenetre;
+    //varable pour colonne et rows de notre vitrail
     int colonnes, rows;
 public:
 
-
-
+    /*
+    *   @param: colonne/vitre donc est composer le vitrail
+    *   > constructeur parametrizer
+    */
     Vitrail(int colonnes, int vitres); //constructeur parametrizer
 
-    //prendre vitres du vector et mettre dans vitrail a colonne
+    /*
+    *   @param: vitres - lot selectionner, colonne - colonne selectionner du vitrail
+    *   @return: nombre d'index vitres non utiliser
+    *   > prend les vitres du lot et les met dans le vitrail a la colonne referencer
+    */
     int construireVitrail(vector<char> vitres, int colonne);
 
-    //retourne vrai si colonne est complete
+    /*
+    *   @param: colonne- colonne a evaluer
+    *   @return: true si la colonne est pleine
+    *   > retourne vrai si colonne est complete
+    */
     bool estComplete(int colonne);
 
-    //est ce que au moins un vitre installe
+    /*
+    *   @param: colonne- colonne a evaluer
+    *   @return: true si colonne changer
+    *   > verifie si au moin une vitre a ete changer dans la colonne
+    */
     bool estEnConstruction(int colonne);
 
-    //affichage des vitrails
+    /*
+    *   @return: le nombre de la colonne
+    */
+    int getColonne();
+
+    /*
+    *   > Affiche le vitrail
+    */
     friend std::ostream &operator<<(std::ostream& os, const Vitrail *vitrail);
 
-    int getColonne();
 
 };
 std::ostream &operator<<(std::ostream& os, const Vitrail *vitrail);

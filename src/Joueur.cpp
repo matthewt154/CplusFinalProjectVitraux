@@ -6,12 +6,11 @@
 using namespace std;
 
 //constructeur par default
-Joueur::Joueur(){cout<<"Default joueur"<<endl;};
+Joueur::Joueur(){};
 
 //constructeur parametrisee WORKS
 Joueur::Joueur(string name, Vitrail& _vitrail) :vitrail(&_vitrail), points(0), position(6), nom(name){
     //doit commencer a extreme gauche (position 6)
-    cout<<"Creation joueur: "<<name<<endl;
 }
 
 //destructeur
@@ -22,6 +21,8 @@ int Joueur::getPosition() {return this->position; }
 Vitrail* Joueur::getVitrail() {return this->vitrail; }
 //changer les points
 void Joueur::changerPoints(int p) {this->points = this->points + p;}
+
+int Joueur::getPoint(){return points;}
 
 //WORKS
 Joueur& Joueur:: operator--( int){//deplacement gauche de 1 (plus grand colonne a gauche)
@@ -52,14 +53,14 @@ Joueur& Joueur::operator~(){
 //WORKS
 std::ostream &operator<<(std::ostream &out, Joueur& player ) { //WORKS
         //permet afficher etat d'un joueur
-        out<<player.nom <<" : "<<player.points<<" points"<<endl;
+        out<<"Joueur "<<player.nom <<": "<<player.points<<" points"<<endl;
         out<<endl;
         out<<"Vitrier a la position: "<<player.position<<endl;
+        out<<endl;
         out<<"Plan:"<<endl;
         out<<endl;
-        out<<"Start affiche"<<endl;
-        out<<player.vitrail; //va afficher le vitrail courant du Joueu
-        out<<"End affiche"<<endl;
+        out<<player.vitrail; //va afficher le vitrail courant du Joueur
+        out<<endl;
 
         return out;
 }
