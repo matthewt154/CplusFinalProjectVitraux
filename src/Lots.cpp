@@ -30,7 +30,7 @@ bool Lots::getLot(char coul, int col){
 
         for (int i=0; i<4;i++){
                 cout<<"getLot"<<endl;
-            if (lotFenetre[i][col] == coul){
+            if (lotFenetre[i][4-col] == coul){
                 return true;
             }
         }

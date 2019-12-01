@@ -189,33 +189,7 @@ void playRound (Joueur& joueur, Lots& lots, int action) {
 //fonction principal du programme
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 int main(){
-    /* Testing methods
-    Vitrail* vit=new Vitrail(7,5);
-    cout <<vit<<endl;
-    vector<char> vect{'C','O','J','O','G'};
-    cout<<"Appel a construireVitrail"<<endl;
-    vit->construireVitrail(vect, 5);
-    cout<<vit<<endl;
-    bool comp=vit->estEnConstruction(5);
-    if (comp==true){cout<<"Complete"<<endl;}
-    else {cout<<"Not complete"<<endl;}
-    string name="Joueur A";
-    //Test Joueur
-    Joueur joueur(name, *vit); //creation de Joueur
-    joueur--;
-    cout<<joueur<<endl; //testing operator <<
-    joueur-=(2);
-    cout <<joueur<<endl;
-    ~joueur;
-    cout<<joueur<<endl;
 
-    Lots lots; //testing lots
-    cout <<lots;
-    lots.ramasseVitre('B',2);
-    cout<<lots;
-    lots.reset_L();
-    cout<<lots;
-    */
     cout<<"| --------------------------------|"<<endl;
     cout<<"|   "<<"Bienvenu au Jeu du Vitrail"<<"    |"<<endl;
     cout<<"| --------------------------------|"<<endl;
