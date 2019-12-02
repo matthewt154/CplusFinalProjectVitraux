@@ -25,8 +25,8 @@ Lots::Lots(){
                 lotFenetre[i][y] = couleurs[rand() %5]; //loading random colours in Lots
             }
         }
-
     }
+
 // constructeur destructeur
 Lots::~Lots(){
      for (int i=0; i < 5; i++)
@@ -37,17 +37,12 @@ Lots::~Lots(){
 bool Lots::getLot(char coul, int col){
         bool result=false;
         if(col < 0){
-                if(!surplus.empty()){
-                    for(std::vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
-                        if (*it == coul){
-                            result =  true;
-                            break;
-                        }
-                    }
-                }else{
-                    return false;
+            for(std::vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
+                if (*it == coul){
+                    result =  true;
+                    break;
                 }
-
+            }
         }else{
             for (int i=0; i<4;i++){
                 if (lotFenetre[i][4-col] == coul){
@@ -60,34 +55,6 @@ bool Lots::getLot(char coul, int col){
     return result;
 }
 
-bool Lots::lotColonneEmpty(int col){
-    int cnt = 0;
-    for (int i=0; i<4;i++){
-        if (lotFenetre[i][4-col] == '.'){
-            cnt++;
-        }
-    }
-    if(cnt == 4){
-        return true;
-    }
-    return false;
-}
-
-bool Lots::LotsEmpty(){
-    int cnt=0;
-        for(int i = 0; i<5; i++){
-            if (lotFenetre[0][i]=='.') { cnt++;} //only need to check first element of column
-        }
-        if (cnt==5) { // tout les colonnes de lots sont vides
-                return true;
-        }
-    return false;
-}
-
-bool Lots::surplusEmpty(){
-
-    return surplus.empty();
-}
 bool Lots::isEmpty() { //check si lots et son surplus est vide
     if (surplus.empty()) {
         int cnt=0;
@@ -104,13 +71,12 @@ bool Lots::isEmpty() { //check si lots et son surplus est vide
 std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
     std::vector<char> LotOfSameColor;
     if(numeroLot < 0){
-            for(int i = 0; i < surplus.size(); i++){
-                    cout<<"crash pas-1"<<endl;
-                if(surplus[i] == couleur){
-                        cout<<"crash pas"<<endl;
-                    LotOfSameColor.push_back(surplus[i]);
-                cout<<"crash pas1"<<endl;
-                    surplus.erase(surplus.begin()+i);
+            for(std::vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
+                if(*it == couleur){
+                    cout<<"ramassevitre in loop"<<endl;
+                    LotOfSameColor.push_back(*it);
+                    surplus.erase(it);
+                    *it == '.';
                 }
             }
     }else{

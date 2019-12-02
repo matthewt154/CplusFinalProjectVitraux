@@ -37,6 +37,8 @@ void Joueur::changerPoints(int p) {this->points = this->points + p;}
 
 int Joueur::getPoint(){return points;}
 
+string Joueur::getName(){return nom;}
+
 void Joueur::calculatePoints(int unusedVitres) {
     int result=0;
     if (vitrail->estComplete(position)) { //colonne complete

@@ -47,9 +47,21 @@ public:
     bool getLot(char coul, int col);
 
     /*
+    *   @return: true si la colonne du lot est vide
+    */
+    bool lotColonneEmpty(int col);
+    /*
+    *   @return: true si surplus est vide
+    */
+    bool surplusEmpty();
+
+    /*
+    *   @return: true si seulement Lot empty
+    */
+     bool LotsEmpty();
+    /*
     *   @return: true si Lots et surplus sont vide
     */
-
     bool isEmpty();
 
     /*

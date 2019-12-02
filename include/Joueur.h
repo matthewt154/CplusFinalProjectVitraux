@@ -46,6 +46,10 @@ public:
     int getPoint();
 
     /*
+    *   @return: le nom du joueur
+    */
+    string getName();
+    /*
     *   @param: int les vitres qui ne peuvent etre installe
     *   Fonction pour calculer les points du joueur a la fin de chaque tour
     *   @return: void

@@ -97,6 +97,7 @@ int main(){
     Joueur joueurActif;                             //contient le joueur actif a jouer
     int action;                                     //determine l'action du joueur a prendre
     int phase = 0;                                  //nombre de phase
+
     while(true){
 
         //vas decider qui est a jouer
@@ -132,13 +133,14 @@ int main(){
             if (action<1||action>2) {
                 cout<<"*************************************************************************"<<endl;
                 cout<<"Choix impossible"<<endl;
-                cout<<"Selectionner une possibiliter de la list ci-dessous: "<<endl;
+                cout<<"Selectionner entre: "<<endl;
                 cout<<"---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---"<<endl;
                 cout<<"Selectionner une colonne du vitrail entre 0 et le vitrier             (1)"<<endl;
                 cout<<"Positionner le vitrier a l'extrem gauche (selection de cette colonne) (2)"<<endl;
                 cout<<"*************************************************************************"<<endl;
                 cout<<"Entree votre choix: ";
-            }else if(!(cin)){throw std::invalid_argument("Valeur fournir illegal - arret du program");}
+            }
+            if(!(cin)){throw std::invalid_argument("Valeur fournir illegal - arret du program");}
             else {break;}
         }
         //BEGIN Round
@@ -155,21 +157,24 @@ int main(){
             cout<<"Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus): "<<endl;
             cout<<"***************************************************************"<<endl;
             cout<<"Entree votre choix: ";
-
             while (true) {
                     cin>>col; cout<<endl;
-                     if (col>4 || col < -1) {
+                    if (col>4 || col < -1) {
                             cout<<"Entrer colonne correspondant a un lot ou le surplus: ";
-                    }else if(col == -1 && lots.surplusEmpty()){
+                    }
+                    if(col == -1 && lots.surplusEmpty()){
                         cout<<"Option invalide: Le surplus est vide!! "<<endl;
                         cout<<"Entrer colonne correspondant a un lot: ";
-                    }else if(col > 0 && lots.LotsEmpty()){
+                    }
+                    if(col > 0 && lots.LotsEmpty()){
                         cout<<"Option invalide: Le lots est vide!! "<<endl;
                         cout<<"Selectionner du surplus (-1): ";
-                    }else if(col > 0 && lots.lotColonneEmpty(col)){
+                    }
+                    if(col > 0 && lots.lotColonneEmpty(col)){
                         cout<<"Option invalide: La colonne est vide "<<endl;
                         cout<<"Entrer colonne correspondant a un lot plein: ";
-                    }else if(!(cin)){
+                    }
+                    if(!(cin)){
                             throw std::invalid_argument("Valeur fournir illegal - arret du program");
                     }else {
                         break;
@@ -202,11 +207,10 @@ int main(){
             //VALEUR RETOUR = int vitCol
             cout<<"**************************************************************************"<<endl;
             cout<<"Vous avez selectionner du lot "<<chosenLots.size()<<" vitres de Couleur - "<<chosenLots.front()<<endl;
-            cout<<"Selectionner une colonne entre 0 et vitrier ("<<joueurActif.getPosition()<<") pour placer votre selection: "<<endl;
+            cout<<"Selectionner une colonne entre 0 et vitrier pour placer votre selection: "<<endl;
             cout<<"**************************************************************************"<<endl;
             cout<<"Entree votre choix: ";
             while (true) {
-
                     cin>>vitCol; cout<<endl;
                     if (vitCol>joueurActif.getPosition() || vitCol< 0 ) {
                             cout<< "Effectuez une selection entre 0 et le vitrier "<<joueurActif.getPosition();
@@ -243,26 +247,25 @@ int main(){
             //VALEUR RETOUR = int col
             cout<<"*****************************************"<<endl;
             cout<<"Votre selection de lot sera placer par"<<endl;
-            cout<<"default dans a l'extreme gauche."<<endl;
-            cout<<"Vitrier a la position: "<<joueurActif.getPosition()<<endl;
+            cout<<"default dans la colonne la plus a gauche."<<endl;
             cout<<"*****************************************"<<endl;
             cout<<endl;
-            cout<<"***************************************************************"<<endl;
-            cout<<"Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus): "<<endl;
-            cout<<"***************************************************************"<<endl;
-            cout<<"Entree votre choix: ";
-
             while (true) {
+                    cout<<"***************************************************************"<<endl;
+                    cout<<"Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus): "<<endl;
+                    cout<<"***************************************************************"<<endl;
+                    cout<<"Entree votre choix: ";
                     cin>>col; cout<<endl;
-                     if (col>4 || col < -1) {
-                            cout<<"Entrer colonne correspondant a un lot ou le surplus: ";
+                    if (col>4 || col < -1) {
+                            cout<<"Entrer colonne correspondant a un lot: ";
+                            cout<<endl;
                     }else if(col == -1 && lots.surplusEmpty()){
                         cout<<"Option invalide: Le surplus est vide!! "<<endl;
                         cout<<"Entrer colonne correspondant a un lot: ";
-                    }else if(col > 0 && lots.LotsEmpty()){
+                    }else if(lots.LotsEmpty()){
                         cout<<"Option invalide: Le lots est vide!! "<<endl;
                         cout<<"Selectionner du surplus (-1): ";
-                    }else if(col > 0 && lots.lotColonneEmpty(col)){
+                    }else if(lots.lotColonneEmpty(col)){
                         cout<<"Option invalide: La colonne est vide "<<endl;
                         cout<<"Entrer colonne correspondant a un lot plein: ";
                     }else if(!(cin)){
@@ -271,29 +274,30 @@ int main(){
                         break;
                     }
                 }
-        //demande a l'utilisateur d'entree un choix de couleur a selectionner
+            //demande a l'utilisateur d'entree un choix de couleur a selectionner du lot
+            //TO_DO add code to strip characters spaces away
             //VALEUR RETOUR = char couleur
+            cout<<"***********************************************************"<<endl;
+            cout<<"Entrer une couleur ( G , J , B , R , O ) a prendre: "<<endl;
+            cout<<"***********************************************************"<<endl;
+            cout<<"Entree votre choix: ";
             while(true){
-                cout<<"***********************************************************"<<endl;
-                cout<<"Entrer une couleur ( G , J , B , R , O ) a prendre: "<<endl;
-                cout<<"***********************************************************"<<endl;
-                cout<<"Entree votre choix: ";
-                cin>>couleur; cout<<endl;
-                if(couleur == 'G' || couleur == 'J' || couleur == 'B' || couleur == 'R' || couleur == 'O'){
-                        if(lots.getLot(couleur,col)){
-                            chosenLots=lots.ramasseVitre(couleur, col); //prendre les couleurs du lot
-                            break;
-                        }else{
-                            cout<<"La couleur selectionner n'est pas dans la colonne du lot"<<endl;
-                        }
-                }
-                if(!(cin)){
-                            throw std::invalid_argument("Valeur fournir illegal - arret du program");
-                }
-                else{
-                    cout<<"Couleur non approprier."<<endl;
-                }
+            cin>>couleur; cout<<endl;
+            if(couleur == 'G' || couleur == 'J' || couleur == 'B' || couleur == 'R' || couleur == 'O'){
+                    if(lots.getLot(couleur,col)){
+                        chosenLots=lots.ramasseVitre(couleur, col); //prendre les couleurs du lot
+                        break;
+                    }else{
+                        cout<<"La couleur selectionner n'est pas dans la colonne du lot"<<endl;
+                    }
             }
+            if(!(cin)){
+                        throw std::invalid_argument("Valeur fournir illegal - arret du program");
+            }
+            else{
+                cout<<"Couleur non approprier."<<endl;
+            }
+        }
             int success;
             success=joueurActif.getVitrail()->construireVitrail(chosenLots, joueurActif.getPosition());
             //calcul des points
@@ -314,13 +318,13 @@ int main(){
         cout<<"Appuier sur une touche pour passer a l'autre joueur"<<endl;
         cout<<"***************************************************"<<endl;
         getch();
-        gameCounter++; // permet d'alterner entre les joueur
-        if (lots.isEmpty()) { //permet de savoir si une phase est terminer
+        //gameCounter++;
+        if (lots.isEmpty()) {
             lots.reset_L();
             phase++;
         }
-        //affiche le gagant de la partie
-        if(phase == 4){
+
+        if(phase == 1){
             Joueur gagnant;
             if(joueur1.getPoint()<joueur2.getPoint()){
                 gagnant = joueur2;
@@ -329,7 +333,7 @@ int main(){
             }
             cout<<"**********************************************"<<endl;
             cout<<"Le gagnant de la partie est: "<<gagnant.getName()<<endl;
-            cout<<"avec un total de "<<gagnant.getPoint()<<" points"<<endl;
+            cout<<"avec un total de "<<gagnant.getPoint()<<endl;
             cout<<"**********************************************"<<endl;
             break;
         }
