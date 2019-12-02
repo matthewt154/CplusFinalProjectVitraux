@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1575234838 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
+1575248118 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\lots.cpp
 	<iostream>
 	<stdlib.h>
 	<vector>
 	"Lots.h"
 
-1575234838 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
+1575236292 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\lots.h
 	<iostream>
 	<vector>
 
@@ -41,20 +41,21 @@
 	"Vitrail.h"
 	"Joueur.h"
 
-1575234838 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
+1575249001 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\joueur.cpp
 	<iostream>
 	<stdexcept>
 	"Vitrail.h"
 	"Joueur.h"
 
-1575234838 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
+1575236292 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\vitrail.h
 	<vector>
 	<iostream>
 
-1575234838 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
+1575236292 c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\include\joueur.h
 	<ostream>
 
-1575234838 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+1575249788 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\projetcsi2772.cpp
+	<conio.h>
 	"Lots.h"
 	"Vitrail.h"
 	"Joueur.h"
@@ -65,7 +66,7 @@
 	<stdexcept>
 	<vector>
 
-1575234838 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\vitrail.cpp
+1575248118 source:c:\users\mahieu\dropbox\08-uottawa automne 2019\04-csi2772 - concept progr c++\projet\cplusfinalprojectvitraux\src\vitrail.cpp
 	<stdlib.h>
 	<stdexcept>
 	<vector>

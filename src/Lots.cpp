@@ -1,5 +1,5 @@
 /*
-*   Cours:        CSI2772 - Concept avancer en C++
+*   Cours:        CSI2772 - Concept avancer C++
 *   Session:      Autumne 2019
 *   Remise:       6 décembre 2019
 *   Author 1:     Mathieu Bellefeuille
@@ -13,10 +13,9 @@
 #include <vector>
 #include "Lots.h"
 using namespace std;
-//std::vector<char> surplus;
-//char** Lots::lotFenetre;
+
 // constructeur par defaut
-Lots::Lots(){ //WORKS
+Lots::Lots(){
 
         lotFenetre = new char* [4];
 
@@ -26,7 +25,6 @@ Lots::Lots(){ //WORKS
                 lotFenetre[i][y] = couleurs[rand() %5]; //loading random colours in Lots
             }
         }
-        cout<<"Test: (.cpp Lots)Creation success d'un lot"<<endl;
     }
 
 // constructeur destructeur
@@ -39,7 +37,6 @@ Lots::~Lots(){
 bool Lots::getLot(char coul, int col){
         bool result=false;
         for (int i=0; i<4;i++){
-                cout<<"getLot"<<endl;
             if (lotFenetre[i][4-col] == coul){
                 result =  true;
                 break;
@@ -60,13 +57,10 @@ bool Lots::isEmpty() { //check si lots et son surplus est vide
         return false;
     }
 }
-//WORKS (without pointers)
+
 std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
-    cout<<"Commencer ramasseVitre"<<endl;
     std::vector<char> LotOfSameColor;
-
     if(numeroLot < 0){
-
             for(std::vector <char> :: iterator it = surplus.begin(); it != surplus.end(); ++it){
                 if(*it == couleur){
                     LotOfSameColor.push_back(*it);
@@ -86,11 +80,9 @@ std::vector<char> Lots:: ramasseVitre(char couleur, int numeroLot){
         }
 
     }
-    cout<<"Fin ramasseVitre"<<endl;
     return LotOfSameColor;
 }
 
-//WORKS
 void Lots::reset_L(){
      for(int i = 0; i<4; i++){
             for(int y = 0; y < 5; y++){
@@ -99,10 +91,8 @@ void Lots::reset_L(){
         }
         //reset surplus aussi
         surplus.clear();
-        cout <<"Lots reset"<<endl;
     }
 
-//WORKS (for now)
 std::ostream &operator<<(std::ostream &output, Lots &lot ) {
         output<< "Lots: "<<std::endl;
         output <<""<<std::endl;
@@ -128,8 +118,6 @@ std::ostream &operator<<(std::ostream &output, Lots &lot ) {
             output<<*it<< "  ";
         }
         output<< "]"<<endl;
-
-
         return output;
 }
 

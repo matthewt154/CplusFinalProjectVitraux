@@ -26,34 +26,25 @@ Vitrail::Vitrail(int icolonnes, int vitres) : colonnes(icolonnes), rows(vitres){
          [5,6,7,8]]
          change rows to access column
         */
-        //cout << "Vitrail constructor begin"<<endl;
         //the array works like fenetre [rows][colonnes]
         fenetre = new char*[rows]; //creation des rangees
         for (int c=0; c<rows; c++) {
                 fenetre[c]=new char[colonnes];
         }//creation des colonnes
-        //cout <<"Creation de colonnes et de rows succes"<<endl;
         char first,second;
-
-
         int H; //nombre aleatoire, vitres de premiere couleur
         int r; //random colour variable
-        //srand((unsigned)time(0)); //make sure it's truly random every time
         r=rand() %5;
-        //cout<<r;
         for (int i=0; i<colonnes; i++) { //pour chaque colonne (row position in array)
             first=0;
             second=0; //NULL maybe?
             r=rand()%5;
             first= couleurs[r]; //choisit couleurs aleatoire de la liste
-            //cout <<"First: "<<first<<endl;
             while (true) { //assure que pas la meme couleur
                 r=rand()%5;
                 second = couleurs[r];
                 if (second != first) {break;}
             }
-            //cout <<"Second: "<<second<<endl;
-
             H=rand()%rows; //random number in the range 0 to vitres (cases dans les colonnes)
 
             for (int p=0; p<H; p++) { //premiere couleur des vitres dans colonne (descend les rows)
@@ -65,11 +56,9 @@ Vitrail::Vitrail(int icolonnes, int vitres) : colonnes(icolonnes), rows(vitres){
             }
 
         } //seulement 1 ou 2 couleurs par colonne
-        cout << "Vitrail constructor end"<<endl;
-
 }
 
-int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) { //WORKS
+int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) {
         //prend les vitres du vector, place dans colonne
         //si corrspond a couleur necessaire remplace avec x (complete)
         //retourne int (how many not placed successfully)
@@ -79,29 +68,23 @@ int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) { //WORKS
         if(estComplete(actualColumn)){
                 throw std::invalid_argument("Colonne déja complété");
         }
-        int initSize=vitres.size();
-        int success=0; //combien de vitres places
+        int initSize=vitres.size(); //vitre disponible a placer
         for (int i=0; i<rows ; i++) { //descend les rows
             if (!vitres.empty()) { //vector not empty
                 //doit iterer tous les elements du vecteur
-                //cout<<"Not empty"<<endl;
                 for (it=vitres.begin(); it!=vitres.end(); it++) {
-                    cout<<"Checking"<<endl;
-                    if (fenetre[i][actualColumn]==*it) {
+                    char tmp1 = fenetre[i][actualColumn];
+                    if (tmp1== *it) {
                         fenetre[i][actualColumn]='X';
-                        cout<<"X added"<<endl;
-                        //problem with erase
                         vitres.erase(it); //get rid of the value at position, automatically reduces size
                         it--; //decrement iterator to compensate
-                        //cout <<"Vector element erased"<<endl;
-                        success++;
-                        //cout<<"Increment success"<<endl;
                     }
+
                 }
             }
             else {break;}
         }
-        return (initSize-success); //nombre de vitres PAS placer
+        return (4-initSize); //nombre de vitres PAS placer
     }
 
 bool Vitrail::estComplete(int colonne) {//WORKS TESTED
@@ -122,7 +105,6 @@ bool Vitrail::estEnConstruction(int colonne){ //WORKS
         for (int i=0; i<rows; i++) {
             if (fenetre[i][actualColumn]=='X') {
                 construction=true;
-                cout<<"enConstruction vrai"<<endl;
                 break;
             }
         }
@@ -133,7 +115,6 @@ std::ostream &operator<<(std::ostream &output, const Vitrail *item ){ //WORKS
     //Cette classe doit aussi surcharger l’opérateur d’insertion << permettant l’affichage à la
     //console de l’état des vitraux:
     //include extra row for numbering (going down)
-
         for (int i=0; i<item->rows; i++) {
             for (int j=0; j<item->colonnes; j++) {
                 output <<item->fenetre[i][j] <<"  ";
@@ -144,8 +125,6 @@ std::ostream &operator<<(std::ostream &output, const Vitrail *item ){ //WORKS
         for (int n=item->colonnes-1; n>=0; n--) {
             output <<n<<"  ";
         }
-
-
         //output<<3;
         return output;
     }
