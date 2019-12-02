@@ -18,8 +18,9 @@ using namespace std;
 //constructeur par default
 Joueur::Joueur(){};
 
+
 //constructeur parametrisee
-Joueur::Joueur(string name, Vitrail& _vitrail) :vitrail(&_vitrail), points(0), position(3), nom(name){
+Joueur::Joueur(string name, Vitrail& _vitrail, int position) :vitrail(&_vitrail), points(0), position(position), nom(name){
     //doit commencer a extreme gauche (position 6)
 }
 

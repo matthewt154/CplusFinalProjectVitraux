@@ -32,6 +32,7 @@ int main(){
 
     int nColonne = 7;   //valeur par defaut de colonne du vitrail
     int nVitre = 5;     // valeur par defaut du nombre de vitre par colonne
+    int position = 6;
     while(true){        // Demande utilisateur colonne/ vitre par default OU selection personaliser
 
         char reponse;
@@ -45,6 +46,7 @@ int main(){
             while(true){ //demande utilisateur pour nombre de colonne initial du vitrail
 
                 cout<<"Entree le nombre de colonne - (Par default - 7 colonne): "; cin>>nColonne; cout<<endl;
+                position = nColonne - 1;
                 if( nColonne <= 0){
                     cout<<"Entree un nombre plus grand que zero: ";
                 }
@@ -82,17 +84,17 @@ int main(){
     string name;
     cout<< "Entrez le nom du premier joueur: ";
     cin>> name; cout<<endl;
-    Joueur joueur1(name, *vitrailJoueur1 );
+    Joueur *joueur1 = new Joueur(name, *vitrailJoueur1,position );
 
     //Creation du joueur 2
     cout<< "Entrez le nom du deuxieme joueur: ";
     cin>> name; cout<<endl;
-    Joueur joueur2(name, *vitrailJoueur2);
+    Joueur *joueur2 = new Joueur(name, *vitrailJoueur2,position);
 
 
-    Joueur listJoueur[2] = {joueur1,joueur2};       //Liste des joueur
+    Joueur *listJoueur[2] = {joueur1,joueur2};       //Liste des joueur
     int gameCounter = 0;                            //tien le nombre de tour jouer
-    Joueur joueurActif;                             //contient le joueur actif a jouer
+    Joueur *joueurActif;                             //contient le joueur actif a jouer
     int action;                                     //determine l'action du joueur a prendre
     int phase = 0;                                  //nombre de phase
 
@@ -117,7 +119,7 @@ int main(){
             cout<<"//////////////////////////////////////////"<<endl;
         }
 
-        cout<<joueurActif<<endl;
+        cout<<*joueurActif<<endl;
         cout<<lots<<endl;
         cout<<"**************************************************************************"<<endl;
         cout <<"Quel action voulez vous effectuer?"<<endl;
@@ -199,8 +201,8 @@ int main(){
             cout<<"Entree votre choix: ";
             while (true) {
                     cin>>vitCol; cout<<endl;
-                    if (vitCol>joueurActif.getPosition() || vitCol< 0 ) {
-                            cout<< "Effectuez une selection entre 0 et le vitrier "<<joueurActif.getPosition();
+                    if (vitCol>joueurActif->getPosition() || vitCol< 0 ) {
+                            cout<< "Effectuez une selection entre 0 et le vitrier "<<joueurActif->getPosition();
                             cout<<endl;
                     }
                     if(!(cin)){throw std::invalid_argument("Valeur fournir illegal - arret du program");}
@@ -209,28 +211,36 @@ int main(){
 
             //placer les vitres
                 int success;
-                Vitrail *temp = joueurActif.getVitrail();
+                cout<<"break1"<<endl;
+                Vitrail *temp = joueurActif->getVitrail();
+                cout<<"break2"<<endl;
                 success = temp->construireVitrail(chosenLots, vitCol);
-
+                cout<<"break3"<<endl;
             //place vitrier du joueur a la bonne colonne
-                int deplacement = joueurActif.getPosition()-vitCol;
+                int deplacement = joueurActif->getPosition()-vitCol;
+                cout<<"break4"<<endl;
                 if (deplacement==1){//deplacement droit de 1
-                    joueurActif--;
+                        cout<<"break5"<<endl;
+                    *joueurActif--;
+                cout<<"break6"<<endl;
                 } else { //deplacement droite de plus que 1
-                    joueurActif-=(deplacement);
+                    cout<<"break7"<<endl;
+                    *joueurActif-=(deplacement);
                 }
-
+                cout<<"break8"<<endl;
             //calcul des points
-                joueurActif.calculatePoints(success);
-                cout<<joueurActif<<endl;
+                joueurActif->calculatePoints(success);
+                cout<<"break9"<<endl;
+                cout<<*joueurActif<<endl;
+                cout<<"break10"<<endl;
                 cout<<lots<<endl;
 
     }
     if (action==2) { //Action 2 c'est de replacer a gauche
-        int beforeVitrier = joueurActif.getPosition();
-        ~joueurActif; //methode qui place le vitrier a l'extreme gauche
+        int beforeVitrier = joueurActif->getPosition();
+        ~(*joueurActif); //methode qui place le vitrier a l'extreme gauche
         //si utilisateur deja a la position extreme gauche
-        if(beforeVitrier == joueurActif.getPosition()){
+        if(beforeVitrier == joueurActif->getPosition()){
     //Utilisateur choisis un lots (deux prochain boucle while)
             //Demande a l'utilisateur d'entree un choix de colonne
             //VALEUR RETOUR = int col
@@ -280,10 +290,10 @@ int main(){
             }
         }
             int success;
-            success=joueurActif.getVitrail()->construireVitrail(chosenLots, joueurActif.getPosition());
+            success=joueurActif->getVitrail()->construireVitrail(chosenLots, joueurActif->getPosition());
             //calcul des points
-            joueurActif.calculatePoints(success);
-            cout<<joueurActif<<endl;
+            joueurActif->calculatePoints(success);
+            cout<<*joueurActif<<endl;
             cout<<lots<<endl;
 
         }
@@ -299,10 +309,10 @@ int main(){
 
         if(phase == 4){
             Joueur gagnant;
-            if(joueur1.getPoint()<joueur2.getPoint()){
-                gagnant = joueur2;
+            if(joueur1->getPoint()<joueur2->getPoint()){
+                gagnant = *joueur2;
             }else{
-                gagnant = joueur1;
+                gagnant = *joueur1;
             }
             cout<<"**********************************************"<<endl;
             cout<<"Le gagnant de la partie est: "<<gagnant<<endl;

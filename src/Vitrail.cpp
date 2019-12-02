@@ -68,7 +68,6 @@ int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) {
         if(estComplete(actualColumn)){
                 throw std::invalid_argument("Colonne déja complété");
         }
-        int initSize=vitres.size(); //vitre disponible a placer
         for (int i=0; i<rows ; i++) { //descend les rows
             if (!vitres.empty()) { //vector not empty
                 //doit iterer tous les elements du vecteur
@@ -84,7 +83,7 @@ int Vitrail::construireVitrail(std::vector<char> vitres, int colonne) {
             }
             else {break;}
         }
-        return (4-initSize); //nombre de vitres PAS placer
+        return vitres.size(); //nombre de vitres PAS placer
     }
 
 bool Vitrail::estComplete(int colonne) {//WORKS TESTED

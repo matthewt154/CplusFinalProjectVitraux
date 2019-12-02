@@ -31,12 +31,10 @@ public:
     Joueur();
 
     /*
-    *   @param: Joueur - nom du joueur, &vitrail - associe un vitrail au joueur
+    *   @param: Joueur - nom du joueur, &vitrail - associe un vitrail au joueur,  position - position du vitrier
     *   > Constructeur parametrizer
     */
-
-    Joueur(string Joueur, Vitrail& vitrail); //constructeur parametrizer
-
+    Joueur(string name, Vitrail& _vitrail, int position);
     /*
     *   > Destructeur
     */
