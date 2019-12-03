@@ -41,7 +41,7 @@ string Joueur::getName(){return nom;}
 
 void Joueur::calculatePoints(int unusedVitres) {
     int result=0;
-    if (vitrail->estComplete(position)) { //colonne complete
+    if (vitrail->estComplete(position)) { //colonne complete alors calcule les points
         result= result+3;
         //calcul tout vitre entamer de 0 au vitrier
         for (int i=0; i<position; i++) { //+1 si vitre en construction

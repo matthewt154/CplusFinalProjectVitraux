@@ -19,6 +19,11 @@
 #include <vector>
 using namespace std;
 
+/*
+* NOTE IMPORTANT
+* Si une erreur de undefined reference g++ est lance
+* Pour le projet: effectuer CLEAN ensuite rebuild project
+*/
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //fonction principal du programme
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -313,14 +318,14 @@ int main(){
         cout<<"***************************************************"<<endl;
         cout<<"Appuier sur une touche pour passer a l'autre joueur"<<endl;
         cout<<"***************************************************"<<endl;
-        getch();
+        getch(); //command to wait until key is hit
         gameCounter++; // permet d'alterner entre les joueur
         if (lots.isEmpty()) { //permet de savoir si une phase est terminer
             lots.reset_L();
             phase++;
         }
-        //affiche le gagant de la partie
-        if(phase == 4){
+        //affiche le gagant de la partie apres 5 phases (lots reset)
+        if(phase == 5){
             Joueur gagnant;
             if(joueur1.getPoint()<joueur2.getPoint()){
                 gagnant = joueur2;
