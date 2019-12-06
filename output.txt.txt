@@ -1,0 +1,320 @@
+| --------------------------------|
+|   Bienvenu au Jeu du Vitrail    |
+| --------------------------------|
+
+Valeur par default du vitrail - (7 colonne, 5 vitre par colonne)
+Utiliser valeur par defaut pour initializer le vitrail
+YES (Y) - NON (N)
+Y
+Entrez le nom du premier joueur: Matt
+
+Entrez le nom du deuxieme joueur: Cam
+
+//////////////////////////////////////////
+//**************************************//
+//**   Initialization de la partie    **//
+//**************************************//
+//////////////////////////////////////////
+Joueur Matt: 0 points
+
+Vitrier a la position: 6
+
+Plan:
+
+O  O  O  G  J  B  O
+O  O  O  G  J  J  O
+O  O  O  J  G  J  O
+O  R  O  J  G  J  B
+O  R  O  J  G  J  B
+6  5  4  3  2  1  0
+
+Lots:
+
+R  R  B  O  B
+B  B  O  R  J
+O  R  J  G  G
+B  R  J  G  B
+4  3  2  1  0
+Surplus:
+[]
+
+**************************************************************************
+Quel action voulez vous effectuer?
+Selectionner une colonne du vitrail entre Vitrier et 0                (1)
+Positionner le vitrier a l'extrem gauche (selection de cette colonne) (2)
+**************************************************************************
+Entree votre choix: 1
+
+***************************************************************
+Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus):
+***************************************************************
+Entree votre choix: 0
+
+***********************************************************
+Entrer une couleur ( G , J , B , R , O ) a prendre:
+***********************************************************
+Entree votre choix: B
+
+**************************************************************************
+Vous avez selectionner du lot 2 vitres de Couleur - B
+Selectionner une colonne entre 0 et vitrier (6) pour placer votre selection:
+**************************************************************************
+Entree votre choix: 4
+
+Joueur Matt: -2 points
+
+Vitrier a la position: 4
+
+Plan:
+
+O  O  O  G  J  B  O
+O  O  O  G  J  J  O
+O  O  O  J  G  J  O
+O  R  O  J  G  J  B
+O  R  O  J  G  J  B
+6  5  4  3  2  1  0
+
+Lots:
+
+R  R  B  O  .
+B  B  O  R  .
+O  R  J  G  .
+B  R  J  G  .
+4  3  2  1  0
+Surplus:
+[J  G  ]
+
+***************************************************
+Appuier sur une touche pour passer a l'autre joueur
+***************************************************
+//////////////////////////////////////////
+//**************************************//
+//**       CHANGEMENT DE JOUEUR       **//
+//**************************************//
+//////////////////////////////////////////
+Joueur Cam: 0 points
+
+Vitrier a la position: 6
+
+Plan:
+
+B  R  J  O  O  B  O
+J  R  J  O  R  B  J
+J  G  J  O  R  B  J
+J  G  J  O  R  R  J
+J  G  R  O  R  R  J
+6  5  4  3  2  1  0
+
+Lots:
+
+R  R  B  O  .
+B  B  O  R  .
+O  R  J  G  .
+B  R  J  G  .
+4  3  2  1  0
+Surplus:
+[J  G  ]
+
+**************************************************************************
+Quel action voulez vous effectuer?
+Selectionner une colonne du vitrail entre Vitrier et 0                (1)
+Positionner le vitrier a l'extrem gauche (selection de cette colonne) (2)
+**************************************************************************
+Entree votre choix: 1
+
+***************************************************************
+Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus):
+***************************************************************
+Entree votre choix: -1
+
+***********************************************************
+Entrer une couleur ( G , J , B , R , O ) a prendre:
+***********************************************************
+Entree votre choix: J
+
+crash pas-1
+crash pas
+crash pas1
+**************************************************************************
+Vous avez selectionner du lot 1 vitres de Couleur - J
+Selectionner une colonne entre 0 et vitrier (6) pour placer votre selection:
+**************************************************************************
+Entree votre choix: 2
+
+Joueur Cam: -1 points
+
+Vitrier a la position: 2
+
+Plan:
+
+B  R  J  O  O  B  O
+J  R  J  O  R  B  J
+J  G  J  O  R  B  J
+J  G  J  O  R  R  J
+J  G  R  O  R  R  J
+6  5  4  3  2  1  0
+
+Lots:
+
+R  R  B  O  .
+B  B  O  R  .
+O  R  J  G  .
+B  R  J  G  .
+4  3  2  1  0
+Surplus:
+[G  ]
+
+***************************************************
+Appuier sur une touche pour passer a l'autre joueur
+***************************************************
+//////////////////////////////////////////
+//**************************************//
+//**       CHANGEMENT DE JOUEUR       **//
+//**************************************//
+//////////////////////////////////////////
+Joueur Matt: -2 points
+
+Vitrier a la position: 4
+
+Plan:
+
+O  O  O  G  J  B  O
+O  O  O  G  J  J  O
+O  O  O  J  G  J  O
+O  R  O  J  G  J  B
+O  R  O  J  G  J  B
+6  5  4  3  2  1  0
+
+Lots:
+
+R  R  B  O  .
+B  B  O  R  .
+O  R  J  G  .
+B  R  J  G  .
+4  3  2  1  0
+Surplus:
+[G  ]
+
+**************************************************************************
+Quel action voulez vous effectuer?
+Selectionner une colonne du vitrail entre Vitrier et 0                (1)
+Positionner le vitrier a l'extrem gauche (selection de cette colonne) (2)
+**************************************************************************
+Entree votre choix: 2
+
+Le vitrier a ete replacer a l'extreme gauche.
+Position du vitrier: 6
+***************************************************
+Appuier sur une touche pour passer a l'autre joueur
+***************************************************
+//////////////////////////////////////////
+//**************************************//
+//**       CHANGEMENT DE JOUEUR       **//
+//**************************************//
+//////////////////////////////////////////
+Joueur Cam: -1 points
+
+Vitrier a la position: 2
+
+Plan:
+
+B  R  J  O  O  B  O
+J  R  J  O  R  B  J
+J  G  J  O  R  B  J
+J  G  J  O  R  R  J
+J  G  R  O  R  R  J
+6  5  4  3  2  1  0
+
+Lots:
+
+R  R  B  O  .
+B  B  O  R  .
+O  R  J  G  .
+B  R  J  G  .
+4  3  2  1  0
+Surplus:
+[G  ]
+
+**************************************************************************
+Quel action voulez vous effectuer?
+Selectionner une colonne du vitrail entre Vitrier et 0                (1)
+Positionner le vitrier a l'extrem gauche (selection de cette colonne) (2)
+**************************************************************************
+Entree votre choix: 1
+
+***************************************************************
+Choisit une colonne du lot entre 0 et 4. (-1 pour le surplus):
+***************************************************************
+Entree votre choix: 4
+
+***********************************************************
+Entrer une couleur ( G , J , B , R , O ) a prendre:
+***********************************************************
+Entree votre choix: B
+
+**************************************************************************
+Vous avez selectionner du lot 2 vitres de Couleur - B
+Selectionner une colonne entre 0 et vitrier (2) pour placer votre selection:
+**************************************************************************
+Entree votre choix: 0
+
+Joueur Cam: -3 points
+
+Vitrier a la position: 0
+
+Plan:
+
+B  R  J  O  O  B  O
+J  R  J  O  R  B  J
+J  G  J  O  R  B  J
+J  G  J  O  R  R  J
+J  G  R  O  R  R  J
+6  5  4  3  2  1  0
+
+Lots:
+
+.  R  B  O  .
+.  B  O  R  .
+.  R  J  G  .
+.  R  J  G  .
+4  3  2  1  0
+Surplus:
+[G  R  O  ]
+
+***************************************************
+Appuier sur une touche pour passer a l'autre joueur
+***************************************************
+//////////////////////////////////////////
+//**************************************//
+//**       CHANGEMENT DE JOUEUR       **//
+//**************************************//
+//////////////////////////////////////////
+Joueur Matt: -2 points
+
+Vitrier a la position: 6
+
+Plan:
+
+O  O  O  G  J  B  O
+O  O  O  G  J  J  O
+O  O  O  J  G  J  O
+O  R  O  J  G  J  B
+O  R  O  J  G  J  B
+6  5  4  3  2  1  0
+
+Lots:
+
+.  R  B  O  .
+.  B  O  R  .
+.  R  J  G  .
+.  R  J  G  .
+4  3  2  1  0
+Surplus:
+[G  R  O  ]
+
+**************************************************************************
+Quel action voulez vous effectuer?
+Selectionner une colonne du vitrail entre Vitrier et 0                (1)
+Positionner le vitrier a l'extrem gauche (selection de cette colonne) (2)
+**************************************************************************
+Entree votre choix:
