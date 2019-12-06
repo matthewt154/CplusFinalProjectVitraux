@@ -58,7 +58,7 @@ public:
     int getColonne();
 
     /*
-    *   > Affiche le vitrail
+    *   operator overload > Affiche le vitrail
     */
     friend std::ostream &operator<<(std::ostream& os, const Vitrail *vitrail);
 

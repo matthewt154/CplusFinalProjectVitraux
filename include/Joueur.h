@@ -98,7 +98,7 @@ public:
     *   Fonction pour joueur une ronde du jeu, appelle pour un joueur specifique
     *   @return: void
     */
-    //void playRound (Lots& lots, int action);
+
 
 };
 
